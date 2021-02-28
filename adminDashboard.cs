@@ -10,19 +10,22 @@ using System.Windows.Forms;
 
 namespace Examination
 {
-    public partial class Form1 : Form
+    public partial class adminDashboard : Form
     {
-        public Form1()
+        public adminDashboard()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnStudent_Click(object sender, EventArgs e)
         {
-            adminDashboard admin = new adminDashboard();
+            mangeStudent mStudent = new mangeStudent();
             this.Visible = false;
-            admin.ShowDialog();
-            //this.Close();
+            mStudent.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }
