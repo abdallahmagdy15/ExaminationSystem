@@ -31,15 +31,11 @@ namespace Examination
         {
             this.label6 = new System.Windows.Forms.Label();
             this.BoxDepId = new System.Windows.Forms.ComboBox();
-            this.txtStId = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtStFName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtStBd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtStName = new System.Windows.Forms.TextBox();
+            this.txtFName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -48,6 +44,10 @@ namespace Examination
             this.btnAdd = new System.Windows.Forms.Button();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.sqlCommand1 = new System.Data.SqlClient.SqlCommand();
+            this.txtStId = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtStLName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,25 +70,7 @@ namespace Examination
             this.BoxDepId.Name = "BoxDepId";
             this.BoxDepId.Size = new System.Drawing.Size(309, 28);
             this.BoxDepId.TabIndex = 27;
-            // 
-            // txtStId
-            // 
-            this.txtStId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtStId.Location = new System.Drawing.Point(461, 248);
-            this.txtStId.Name = "txtStId";
-            this.txtStId.Size = new System.Drawing.Size(309, 26);
-            this.txtStId.TabIndex = 26;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.label3.Location = new System.Drawing.Point(369, 248);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 20);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "ID";
+            this.BoxDepId.SelectedIndexChanged += new System.EventHandler(this.BoxDepId_SelectedIndexChanged);
             // 
             // btnClose
             // 
@@ -102,25 +84,6 @@ namespace Examination
             this.btnClose.Text = "Back";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.label5.Location = new System.Drawing.Point(340, 190);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 20);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "First Name";
-            // 
-            // txtStFName
-            // 
-            this.txtStFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtStFName.Location = new System.Drawing.Point(461, 188);
-            this.txtStFName.Name = "txtStFName";
-            this.txtStFName.Size = new System.Drawing.Size(309, 26);
-            this.txtStFName.TabIndex = 23;
             // 
             // label4
             // 
@@ -146,19 +109,19 @@ namespace Examination
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.label2.Location = new System.Drawing.Point(340, 130);
+            this.label2.Location = new System.Drawing.Point(340, 202);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 20);
             this.label2.TabIndex = 20;
             this.label2.Text = "First Name";
             // 
-            // txtStName
+            // txtFName
             // 
-            this.txtStName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtStName.Location = new System.Drawing.Point(461, 128);
-            this.txtStName.Name = "txtStName";
-            this.txtStName.Size = new System.Drawing.Size(309, 26);
-            this.txtStName.TabIndex = 29;
+            this.txtFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtFName.Location = new System.Drawing.Point(461, 200);
+            this.txtFName.Name = "txtFName";
+            this.txtFName.Size = new System.Drawing.Size(309, 26);
+            this.txtFName.TabIndex = 29;
             // 
             // label1
             // 
@@ -194,6 +157,7 @@ namespace Examination
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // panel1
             // 
@@ -220,6 +184,7 @@ namespace Examination
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
@@ -232,6 +197,7 @@ namespace Examination
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // sqlConnection1
             // 
@@ -243,22 +209,60 @@ namespace Examination
             // 
             this.sqlCommand1.Connection = this.sqlConnection1;
             // 
+            // txtStId
+            // 
+            this.txtStId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtStId.Location = new System.Drawing.Point(461, 132);
+            this.txtStId.Name = "txtStId";
+            this.txtStId.Size = new System.Drawing.Size(309, 26);
+            this.txtStId.TabIndex = 31;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.label3.Location = new System.Drawing.Point(369, 132);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 20);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "ID";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.label5.Location = new System.Drawing.Point(340, 259);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 20);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Last Name";
+            // 
+            // txtStLName
+            // 
+            this.txtStLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtStLName.Location = new System.Drawing.Point(461, 257);
+            this.txtStLName.Name = "txtStLName";
+            this.txtStLName.Size = new System.Drawing.Size(309, 26);
+            this.txtStLName.TabIndex = 32;
+            // 
             // mangeStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 476);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.BoxDepId);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtStLName);
             this.Controls.Add(this.txtStId);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.BoxDepId);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtStFName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtStBd);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtStName);
+            this.Controls.Add(this.txtFName);
             this.Controls.Add(this.panel1);
             this.Name = "mangeStudent";
             this.Text = "mangeStudent";
@@ -274,15 +278,11 @@ namespace Examination
 
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox BoxDepId;
-        private System.Windows.Forms.TextBox txtStId;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtStFName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtStBd;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtStName;
+        private System.Windows.Forms.TextBox txtFName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
@@ -291,5 +291,9 @@ namespace Examination
         private System.Windows.Forms.Button btnAdd;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
         private System.Data.SqlClient.SqlCommand sqlCommand1;
+        private System.Windows.Forms.TextBox txtStId;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtStLName;
     }
 }
