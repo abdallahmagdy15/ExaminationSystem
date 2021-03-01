@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Examination
 {
-    public partial class mangeStudent : Form
+    public partial class ManageStudent : Form
     {
-        public mangeStudent()
+        public ManageStudent()
         {
             InitializeComponent();
         }
@@ -43,7 +43,7 @@ namespace Examination
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            adminDashboard admin = new adminDashboard();
+            AdminDashboard admin = new AdminDashboard();
             admin.ShowDialog();
             //this.Close();
         }
