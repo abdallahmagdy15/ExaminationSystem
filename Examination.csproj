@@ -46,34 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adminDashboard.cs">
+    <Compile Include="AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adminDashboard.Designer.cs">
-      <DependentUpon>adminDashboard.cs</DependentUpon>
+    <Compile Include="AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="mangeStudent.cs">
+    <Compile Include="ManageStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mangeStudent.Designer.cs">
-      <DependentUpon>mangeStudent.cs</DependentUpon>
+    <Compile Include="ManageStudent.Designer.cs">
+      <DependentUpon>ManageStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="adminDashboard.resx">
-      <DependentUpon>adminDashboard.cs</DependentUpon>
+    <Compile Include="StudentDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentDashboard.Designer.cs">
+      <DependentUpon>StudentDashboard.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mangeStudent.resx">
-      <DependentUpon>mangeStudent.cs</DependentUpon>
+    <EmbeddedResource Include="ManageStudent.resx">
+      <DependentUpon>ManageStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

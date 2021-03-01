@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Examination
 {
-    public partial class adminDashboard : Form
+    public partial class AdminDashboard : Form
     {
-        public adminDashboard()
+        public AdminDashboard()
         {
             InitializeComponent();
         }
 
         private void btnStudent_Click(object sender, EventArgs e)
         {
-            mangeStudent mStudent = new mangeStudent();
+            ManageStudent mStudent = new ManageStudent();
             this.Visible = false;
             mStudent.ShowDialog();
         }

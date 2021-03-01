@@ -1,7 +1,7 @@
 ﻿
 namespace Examination
 {
-    partial class adminDashboard
+    partial class AdminDashboard
     {
         /// <summary>
         /// Required designer variable.
