@@ -50,9 +50,9 @@ namespace Examination
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string Id = txtStId.Text;
+            string Id = txtSid.Text;
             string fName = txtFName.Text;
-            string lName = txtStLName.Text;
+            string lName = txtlname.Text;
             string BD = txtStBd.Text;
             string Did = BoxDepId.Text;
             
@@ -87,7 +87,7 @@ namespace Examination
             try
             {
                 
-                 id = int.Parse(txtStId.Text); 
+                 id = int.Parse(txtSid.Text); 
                 string FindStudent = "GetSTudentData_byID @id";
                 sqlCommand1.Parameters.AddWithValue("@id", id);
                 sqlCommand1.CommandText = FindStudent;
@@ -100,8 +100,8 @@ namespace Examination
                     flag = 1;
                     BoxDepId.Text = dReader["Dept_Id"].ToString();
                     txtStBd.Text = dReader["St_BD"].ToString();
-                    txtStId.Text = dReader["St_Id"].ToString();
-                    txtStLName.Text = dReader["St_Lname"].ToString();
+                    txtSid.Text = dReader["St_Id"].ToString();
+                    txtlname.Text = dReader["St_Lname"].ToString();
                     txtFName.Text = dReader["St_Fname"].ToString();
                 }
                 if (flag == 0) { MessageBox.Show("this Id " + id + " Not exist"); }
@@ -129,9 +129,9 @@ namespace Examination
         private void btnEdit_Click(object sender, EventArgs e)
         {
             
-            string Id = txtStId.Text;
+            string Id = txtSid.Text;
             string fName = txtFName.Text;
-            string lName = txtStLName.Text;
+            string lName = txtlname.Text;
             string BD = txtStBd.Text;
             string Did = BoxDepId.Text;
 
