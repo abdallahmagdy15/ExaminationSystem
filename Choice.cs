@@ -9,6 +9,14 @@ namespace Examination
     class Choice
     {
         public int Id { get; set; }
-        public string Content { get; set; }
+        string content;
+        public string Content
+        {
+            get { return content; }
+            set
+            {
+                content = value.Replace("\r\n", String.Empty);
+            }
+        }
     }
 }
