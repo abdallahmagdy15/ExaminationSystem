@@ -3,6 +3,7 @@ namespace Examination
 {
     partial class LoginForm
     {
+        public static Student CurrentStudent;
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -37,8 +38,8 @@ namespace Examination
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
-            this.sqlCommand1 = new System.Data.SqlClient.SqlCommand();
+            sqlConnection1 = new System.Data.SqlClient.SqlConnection();
+            sqlCommand1 = new System.Data.SqlClient.SqlCommand();
             this.SuspendLayout();
             // 
             // loginBtn
@@ -48,7 +49,7 @@ namespace Examination
             this.loginBtn.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.loginBtn.Location = new System.Drawing.Point(132, 346);
-            this.loginBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loginBtn.Margin = new System.Windows.Forms.Padding(2);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(295, 33);
             this.loginBtn.TabIndex = 0;
@@ -60,21 +61,23 @@ namespace Examination
             // 
             this.unameTxtBox.Font = new System.Drawing.Font("Tahoma", 16F);
             this.unameTxtBox.Location = new System.Drawing.Point(131, 208);
-            this.unameTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.unameTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.unameTxtBox.MaxLength = 50;
             this.unameTxtBox.Name = "unameTxtBox";
             this.unameTxtBox.Size = new System.Drawing.Size(296, 33);
             this.unameTxtBox.TabIndex = 1;
+            this.unameTxtBox.Text = "abdallahm";
             // 
             // passTxtBox
             // 
             this.passTxtBox.Font = new System.Drawing.Font("Tahoma", 16F);
             this.passTxtBox.Location = new System.Drawing.Point(131, 287);
-            this.passTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.passTxtBox.Name = "passTxtBox";
             this.passTxtBox.PasswordChar = '*';
             this.passTxtBox.Size = new System.Drawing.Size(296, 33);
             this.passTxtBox.TabIndex = 2;
+            this.passTxtBox.Text = "12345678";
             // 
             // label1
             // 
@@ -122,14 +125,14 @@ namespace Examination
             // 
             // sqlConnection1
             // 
-            this.sqlConnection1.ConnectionString = "Data Source=mssql-21280-0.cloudclusters.net,21280;Initial Catalog=examination2019" +
+            sqlConnection1.ConnectionString = "Data Source=mssql-21280-0.cloudclusters.net,21280;Initial Catalog=examination2019" +
     ";Persist Security Info=True;User ID=team;Password=Team2021";
-            this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
+            sqlConnection1.FireInfoMessageEventOnUserErrors = false;
             // 
             // sqlCommand1
             // 
-            this.sqlCommand1.CommandText = resources.GetString("sqlCommand1.CommandText");
-            this.sqlCommand1.Connection = this.sqlConnection1;
+            sqlCommand1.CommandText = resources.GetString("sqlCommand1.CommandText");
+            sqlCommand1.Connection = sqlConnection1;
             // 
             // LoginForm
             // 
@@ -143,7 +146,7 @@ namespace Examination
             this.Controls.Add(this.passTxtBox);
             this.Controls.Add(this.unameTxtBox);
             this.Controls.Add(this.loginBtn);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -160,8 +163,8 @@ namespace Examination
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Data.SqlClient.SqlConnection sqlConnection1;
-        private System.Data.SqlClient.SqlCommand sqlCommand1;
+        public static System.Data.SqlClient.SqlConnection sqlConnection1;
+        public static System.Data.SqlClient.SqlCommand sqlCommand1;
     }
 }
 
