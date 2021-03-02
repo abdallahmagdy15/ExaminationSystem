@@ -159,5 +159,30 @@ namespace Examination
             }
 
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string id = txtSid.Text;
+
+            string DeleteStudent = "DeleteStById @id";
+            try
+            {
+                sqlCommand1.Parameters.AddWithValue("@id", id);
+
+                sqlCommand1.CommandText = DeleteStudent;
+
+                sqlConnection1.Open();
+                int AffectedRows = sqlCommand1.ExecuteNonQuery();
+                sqlConnection1.Close();
+                MessageBox.Show(AffectedRows + " Student Deleted");
+                id = string.Empty;
+
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+
+            }
+        }
     }
 }
