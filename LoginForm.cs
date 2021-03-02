@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace Examination
 {
     public partial class LoginForm : Form
-    { 
+    {
         public LoginForm()
         {
             InitializeComponent();
@@ -57,7 +57,7 @@ namespace Examination
                 throw;
             }
 
-            sqlCommand1.CommandText = "SELECT User_Type FROM Login (@uname,@pass)";
+            sqlCommand1.CommandText = "Login @uname, @pass";
             sqlCommand1.Parameters.AddWithValue("@uname", unameTxtBox.Text);
             sqlCommand1.Parameters.AddWithValue("@pass",
                 Encoding.ASCII.GetString(passwordHashed));
@@ -70,8 +70,11 @@ namespace Examination
                 {
                     this.Hide();
                     //if true then he is a student
-                    if (dr.GetBoolean(0))
+                    if ((bool)dr[0])
                     {
+                        CurrentStudent = new Student(dr.GetInt32(1), dr.GetString(2) + ' ' + dr.GetString(3), dr.GetDateTime(4), dr.GetString(6));
+                        dr.Close();
+                        sqlConnection1.Close();
                         var dashboard = new StudentDashboard();
                         // closes hidden prev window if dashboard is closed
                         dashboard.Closed += (s, args) => this.Close();
@@ -80,6 +83,8 @@ namespace Examination
 
                     else
                     {
+                        dr.Close();
+                        sqlConnection1.Close();
                         var dashboard = new AdminDashboard();
                         // closes hidden prev window if dashboard is closed
                         dashboard.Closed += (s, args) => this.Close();
@@ -98,9 +103,12 @@ namespace Examination
                 throw;
 
             }
-            dr.Close();
-            sqlConnection1.Close();
-            sqlCommand1.Parameters.Clear();
+            finally
+            {
+                dr.Close();
+                sqlConnection1.Close();
+                sqlCommand1.Parameters.Clear();
+            }
         }
     }
 }
