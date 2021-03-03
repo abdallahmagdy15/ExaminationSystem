@@ -33,18 +33,18 @@ namespace Examination
             this.TakeExam = new System.Windows.Forms.TabPage();
             this.noExamsLabel = new System.Windows.Forms.Label();
             this.History = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.stNameLabel = new System.Windows.Forms.Label();
-            this.deptLabel = new System.Windows.Forms.Label();
-            this.exDescLabel = new System.Windows.Forms.Label();
-            this.durationLabel = new System.Windows.Forms.Label();
-            this.crsLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
+            this.crsLabel = new System.Windows.Forms.Label();
+            this.durationLabel = new System.Windows.Forms.Label();
+            this.exDescLabel = new System.Windows.Forms.Label();
+            this.deptLabel = new System.Windows.Forms.Label();
+            this.stNameLabel = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.TakeExam.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.mainPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -90,88 +90,72 @@ namespace Examination
             this.History.Text = "History";
             this.History.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // dateLabel
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox1.Controls.Add(this.dateLabel);
-            this.groupBox1.Controls.Add(this.crsLabel);
-            this.groupBox1.Controls.Add(this.durationLabel);
-            this.groupBox1.Controls.Add(this.exDescLabel);
-            this.groupBox1.Controls.Add(this.deptLabel);
-            this.groupBox1.Controls.Add(this.stNameLabel);
-            this.groupBox1.Location = new System.Drawing.Point(11, 11);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1015, 93);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Details";
-            // 
-            // stNameLabel
-            // 
-            this.stNameLabel.AutoSize = true;
-            this.stNameLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.stNameLabel.Location = new System.Drawing.Point(10, 36);
-            this.stNameLabel.Name = "stNameLabel";
-            this.stNameLabel.Size = new System.Drawing.Size(109, 17);
-            this.stNameLabel.TabIndex = 0;
-            this.stNameLabel.Text = "Student Name : ";
-            // 
-            // deptLabel
-            // 
-            this.deptLabel.AutoSize = true;
-            this.deptLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.deptLabel.Location = new System.Drawing.Point(10, 53);
-            this.deptLabel.Name = "deptLabel";
-            this.deptLabel.Size = new System.Drawing.Size(95, 17);
-            this.deptLabel.TabIndex = 1;
-            this.deptLabel.Text = "Department : ";
-            // 
-            // exDescLabel
-            // 
-            this.exDescLabel.AutoSize = true;
-            this.exDescLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.exDescLabel.Location = new System.Drawing.Point(344, 36);
-            this.exDescLabel.Name = "exDescLabel";
-            this.exDescLabel.Size = new System.Drawing.Size(128, 17);
-            this.exDescLabel.TabIndex = 2;
-            this.exDescLabel.Text = "Exam Description : ";
-            // 
-            // durationLabel
-            // 
-            this.durationLabel.AutoSize = true;
-            this.durationLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.durationLabel.Location = new System.Drawing.Point(344, 53);
-            this.durationLabel.Name = "durationLabel";
-            this.durationLabel.Size = new System.Drawing.Size(113, 17);
-            this.durationLabel.TabIndex = 3;
-            this.durationLabel.Text = "Exam Duration : ";
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.dateLabel.Location = new System.Drawing.Point(674, 47);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(50, 17);
+            this.dateLabel.TabIndex = 6;
+            this.dateLabel.Text = "Date : ";
             // 
             // crsLabel
             // 
             this.crsLabel.AutoSize = true;
             this.crsLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.crsLabel.Location = new System.Drawing.Point(688, 36);
+            this.crsLabel.Location = new System.Drawing.Point(674, 30);
             this.crsLabel.Name = "crsLabel";
             this.crsLabel.Size = new System.Drawing.Size(64, 17);
             this.crsLabel.TabIndex = 4;
             this.crsLabel.Text = "Course : ";
             // 
-            // dateLabel
+            // durationLabel
             // 
-            this.dateLabel.AutoSize = true;
-            this.dateLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.dateLabel.Location = new System.Drawing.Point(688, 53);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(50, 17);
-            this.dateLabel.TabIndex = 6;
-            this.dateLabel.Text = "Date : ";
+            this.durationLabel.AutoSize = true;
+            this.durationLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.durationLabel.Location = new System.Drawing.Point(344, 47);
+            this.durationLabel.Name = "durationLabel";
+            this.durationLabel.Size = new System.Drawing.Size(113, 17);
+            this.durationLabel.TabIndex = 3;
+            this.durationLabel.Text = "Exam Duration : ";
+            // 
+            // exDescLabel
+            // 
+            this.exDescLabel.AutoSize = true;
+            this.exDescLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.exDescLabel.Location = new System.Drawing.Point(344, 30);
+            this.exDescLabel.Name = "exDescLabel";
+            this.exDescLabel.Size = new System.Drawing.Size(128, 17);
+            this.exDescLabel.TabIndex = 2;
+            this.exDescLabel.Text = "Exam Description : ";
+            // 
+            // deptLabel
+            // 
+            this.deptLabel.AutoSize = true;
+            this.deptLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.deptLabel.Location = new System.Drawing.Point(21, 47);
+            this.deptLabel.Name = "deptLabel";
+            this.deptLabel.Size = new System.Drawing.Size(95, 17);
+            this.deptLabel.TabIndex = 1;
+            this.deptLabel.Text = "Department : ";
+            // 
+            // stNameLabel
+            // 
+            this.stNameLabel.AutoSize = true;
+            this.stNameLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.stNameLabel.Location = new System.Drawing.Point(21, 30);
+            this.stNameLabel.Name = "stNameLabel";
+            this.stNameLabel.Size = new System.Drawing.Size(109, 17);
+            this.stNameLabel.TabIndex = 0;
+            this.stNameLabel.Text = "Student Name : ";
             // 
             // mainPanel
             // 
             this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.mainPanel.AutoScroll = true;
             this.mainPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.mainPanel.Controls.Add(this.groupBox1);
+            this.mainPanel.Controls.Add(this.panel1);
             this.mainPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.mainPanel.Location = new System.Drawing.Point(12, 34);
             this.mainPanel.Name = "mainPanel";
@@ -180,6 +164,21 @@ namespace Examination
             this.mainPanel.TabIndex = 1;
             this.mainPanel.Visible = false;
             this.mainPanel.WrapContents = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.dateLabel);
+            this.panel1.Controls.Add(this.stNameLabel);
+            this.panel1.Controls.Add(this.crsLabel);
+            this.panel1.Controls.Add(this.deptLabel);
+            this.panel1.Controls.Add(this.durationLabel);
+            this.panel1.Controls.Add(this.exDescLabel);
+            this.panel1.Location = new System.Drawing.Point(11, 11);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1016, 100);
+            this.panel1.TabIndex = 1;
             // 
             // StudentDashboard
             // 
@@ -197,9 +196,9 @@ namespace Examination
             this.tabControl1.ResumeLayout(false);
             this.TakeExam.ResumeLayout(false);
             this.TakeExam.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.mainPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -210,7 +209,6 @@ namespace Examination
         private System.Windows.Forms.TabPage TakeExam;
         private System.Windows.Forms.TabPage History;
         private System.Windows.Forms.Label noExamsLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label crsLabel;
         private System.Windows.Forms.Label durationLabel;
@@ -218,5 +216,6 @@ namespace Examination
         private System.Windows.Forms.Label deptLabel;
         private System.Windows.Forms.Label stNameLabel;
         private System.Windows.Forms.FlowLayoutPanel mainPanel;
+        private System.Windows.Forms.Panel panel1;
     }
 }

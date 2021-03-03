@@ -13,7 +13,7 @@ namespace Examination
         public int Grade { get; set; }
         public bool Type { get; set; }
         public List<Choice> Choices { get; set; }
-
+        public Choice Answer { get; set; }
         public Question()
         {
             Choices = new List<Choice>();

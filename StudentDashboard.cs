@@ -14,6 +14,7 @@ namespace Examination
     public partial class StudentDashboard : Form
     {
         Exam exam;
+        HashSet<int> StAnswers = new HashSet<int>();
         public StudentDashboard()
         {
             InitializeComponent();
@@ -155,7 +156,7 @@ namespace Examination
                 qnLabel.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
                 qnLabel.Text = qn.Content;
                 this.mainPanel.Controls.Add(qnLabel);
-
+                //
                 //generate group box for choices 
                 GroupBox group = new GroupBox();
                 group.Location = new System.Drawing.Point(11, qnY + 50);
@@ -164,7 +165,7 @@ namespace Examination
                 group.TabIndex = 1;
                 group.TabStop = false;
                 this.mainPanel.Controls.Add(group);
-
+                //
                 //generate choices
                 chY = 0;
                 qn.Choices.ForEach(ch =>
@@ -181,7 +182,7 @@ namespace Examination
                     chY += 30;
                     group.Controls.Add(chRadioBtn);
                 });
-
+                //
                 //generate horizontal divider
                 Label divider = new Label();
                 divider.Location = new System.Drawing.Point(11, qnY + 170);
@@ -196,12 +197,88 @@ namespace Examination
 
                 qnY += 200;
             });
-
+            //end questions loop
+            //
+            // SubmitBtn
+            // 
+            Button SubmitBtn = new Button();
+            SubmitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            SubmitBtn.Font = new System.Drawing.Font("Tahoma", 12F);
+            SubmitBtn.Location = new System.Drawing.Point(875, qnY);
+            SubmitBtn.Name = "SubmitBtn";
+            SubmitBtn.Size = new System.Drawing.Size(151, 36);
+            SubmitBtn.Margin = new System.Windows.Forms.Padding(10);
+            SubmitBtn.TabIndex = 1;
+            SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
+            SubmitBtn.Text = "Submit";
+            SubmitBtn.UseVisualStyleBackColor = true;
+            this.mainPanel.Controls.Add(SubmitBtn);
         }
 
+        private void SubmitAnswers()
+        {
+            int questionCounter = 0, choiceId; bool valid = true;
+            //looping through groups(questions) of choices
+            this.mainPanel.Controls.OfType<GroupBox>().ToList().ForEach(g =>
+            {
+                //if not all questions answered
+                if (!valid)
+                    return;
+
+                //submit choice answer to question
+                RadioButton choiceRB = g.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+                if (choiceRB == null)
+                {
+                    MessageBox.Show("Please Answer All Questions!!!");
+                    valid = false;
+                    return;
+                }
+                choiceId = int.Parse(choiceRB.Name.Substring(2));
+                exam.Questions[questionCounter].Answer =
+                exam.Questions[questionCounter].Choices.FirstOrDefault(c => c.Id == choiceId);
+                questionCounter++;
+            });
+            //if all questions not answered
+            if (!valid)
+                return;
+            //
+            //saving answers to db
+            StringBuilder insertingAnswersCommand = new StringBuilder();
+            exam.Questions.ForEach(q =>
+            {
+                insertingAnswersCommand.Append($" exec InsertStudentAnswer {LoginForm.CurrentStudent.StId} , {q.Answer.Id} , {q.Id} , {exam.Ex_Id}");
+            });
+            LoginForm.sqlCommand1.CommandText = insertingAnswersCommand.ToString();
+            try
+            {
+                LoginForm.sqlConnection1.Open();
+                LoginForm.sqlCommand1.ExecuteNonQuery();
+
+                MessageBox.Show("Your Answers Submitted Successfully!");
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Your Answers May Not Submitted For Some Reason!\nTry Again Later.");
+                MessageBox.Show(err.Message);
+                throw;
+            }
+            finally
+            {
+                LoginForm.sqlConnection1.Close();
+            }
+        }
         private void StudentDashboard_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void SubmitBtn_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Are you sure to submit all of your answers??",
+                                     "Submit Exam Answers",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+                SubmitAnswers();
         }
     }
 }
