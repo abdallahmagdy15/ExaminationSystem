@@ -84,10 +84,11 @@ namespace Examination
 
                 dr.Close();
                 //filling questions with choices
+                //1,2,4,6,20 ,24
                 //MAIN TASK : PASSING ARRAY OF QUESTIONS IDs TO QUERY TO GET ALL CHOICES AT ONCE
 
                 DataTable dt = new DataTable();
-                dt.Columns.Add("Ch_Id", typeof(int));
+                dt.Columns.Add("Qn_Id", typeof(int));
                 exam.Questions.ForEach(q =>
                 {
                     dt.Rows.Add(q.Id);
@@ -102,19 +103,29 @@ namespace Examination
                 dr = LoginForm.sqlCommand1.ExecuteReader();
                 //reading all choices of all questions
                 int choiceCounter = 3;
+                //4 choices for "multi choice" and 2 choices for "true/false"
+                if (exam.Questions.Count > 0)
+                    if (exam.Questions[0].Type)
+                        choiceCounter = 3;
+                    else
+                        choiceCounter = 1;
                 int questionCounter = 0;
                 while (dr.Read())
                 {
                     exam.Questions[questionCounter].Choices.Add(
                         new Choice() { Id = dr.GetInt32(0), Content = dr.GetString(1) }
                         );
-                    //set 4 choices for each question
+                    //set choices count for each question
                     if (choiceCounter != 0)
                         choiceCounter--;
                     else
                     {
-                        choiceCounter = 3;
                         questionCounter++;
+                        if (exam.Questions.Count > questionCounter)
+                            if (exam.Questions[questionCounter].Type)
+                                choiceCounter = 3;
+                            else
+                                choiceCounter = 1;
                     }
 
                 }
@@ -131,7 +142,7 @@ namespace Examination
 
         void ShowQuestionsWithChoices()
         {
-            int qnY = 102,chY= 155;
+            int qnY = 102, chY = 155;
             exam.Questions.ForEach(qn =>
             {
                 //generate question label
@@ -147,20 +158,20 @@ namespace Examination
 
                 //generate group box for choices 
                 GroupBox group = new GroupBox();
-                group.Location = new System.Drawing.Point(11, qnY+ 50);
-                group.Name = "groupBox"+qn.Id;
+                group.Location = new System.Drawing.Point(11, qnY + 50);
+                group.Name = "groupBox" + qn.Id;
                 group.Size = new System.Drawing.Size(1005, 116);
                 group.TabIndex = 1;
                 group.TabStop = false;
                 this.mainPanel.Controls.Add(group);
 
                 //generate choices
-                chY =  0;
+                chY = 0;
                 qn.Choices.ForEach(ch =>
                 {
                     RadioButton chRadioBtn = new RadioButton();
                     chRadioBtn.Location = new System.Drawing.Point(11, chY);
-                    chRadioBtn.Name = "Ch"+ch.Id;
+                    chRadioBtn.Name = "Ch" + ch.Id;
                     chRadioBtn.Size = new System.Drawing.Size(1005, 24);
                     chRadioBtn.TabIndex = 2;
                     chRadioBtn.TabStop = true;
@@ -173,8 +184,8 @@ namespace Examination
 
                 //generate horizontal divider
                 Label divider = new Label();
-                divider.Location = new System.Drawing.Point(11, qnY+170);
-                divider.Name = "divider"+ qn.Id;
+                divider.Location = new System.Drawing.Point(11, qnY + 170);
+                divider.Name = "divider" + qn.Id;
                 divider.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
                 divider.Size = new System.Drawing.Size(1005, 30);
                 divider.BackColor = System.Drawing.Color.WhiteSmoke;
