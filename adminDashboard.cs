@@ -28,5 +28,17 @@ namespace Examination
         {
 
         }
+
+        private void btnExam_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnGExam_Click(object sender, EventArgs e)
+        {
+            ExamGeneration exGenerate = new ExamGeneration();
+            this.Visible = false;
+            exGenerate.ShowDialog();
+        }
     }
 }
