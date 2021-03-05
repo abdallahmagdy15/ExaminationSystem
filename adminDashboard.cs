@@ -31,7 +31,9 @@ namespace Examination
 
         private void btnExam_Click(object sender, EventArgs e)
         {
-            
+            ManageExam Ex = new ManageExam();
+            this.Visible = false;
+            Ex.ShowDialog();
         }
 
         private void btnGExam_Click(object sender, EventArgs e)
@@ -41,11 +43,19 @@ namespace Examination
             exGenerate.ShowDialog();
         }
 
+<<<<<<< HEAD
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ManageQuestion Qn = new ManageQuestion();
+            this.Visible = false;
+            Qn.ShowDialog();
+=======
         private void btnDepartments_Click(object sender, EventArgs e)
         {
             MangeDepartment form = new MangeDepartment();
             this.Visible = false;
             form.ShowDialog();
+>>>>>>> 6433664deb0b76c8e3395949edabe09eb25353ae
         }
     }
 }
