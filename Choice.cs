@@ -18,5 +18,10 @@ namespace Examination
                 content = value.Replace("\r\n", String.Empty);
             }
         }
+
+        public override string ToString()
+        {
+            return content;
+        }
     }
 }
