@@ -39,8 +39,7 @@ namespace Examination
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
-            this.sqlCommand1 = new System.Data.SqlClient.SqlCommand();
+            
             this.btnGenerate = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -57,7 +56,7 @@ namespace Examination
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(423, 75);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.Size = new System.Drawing.Size(248, 24);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -88,7 +87,7 @@ namespace Examination
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(423, 133);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 22);
+            this.textBox1.Size = new System.Drawing.Size(248, 22);
             this.textBox1.TabIndex = 4;
             // 
             // label3
@@ -107,7 +106,7 @@ namespace Examination
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.Location = new System.Drawing.Point(423, 195);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(108, 22);
+            this.numericUpDown1.Size = new System.Drawing.Size(248, 22);
             this.numericUpDown1.TabIndex = 6;
             // 
             // label4
@@ -137,7 +136,7 @@ namespace Examination
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(423, 251);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(108, 22);
+            this.textBox2.Size = new System.Drawing.Size(248, 22);
             this.textBox2.TabIndex = 9;
             // 
             // textBox3
@@ -145,18 +144,9 @@ namespace Examination
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(423, 302);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(108, 22);
+            this.textBox3.Size = new System.Drawing.Size(248, 22);
             this.textBox3.TabIndex = 10;
-            // 
-            // sqlConnection1
-            // 
-            this.sqlConnection1.ConnectionString = "Data Source=mssql-21280-0.cloudclusters.net,21280;Initial Catalog=examination2019" +
-    ";Persist Security Info=True;User ID=team";
-            this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
-            // 
-            // sqlCommand1
-            // 
-            this.sqlCommand1.Connection = this.sqlConnection1;
+            
             // 
             // btnGenerate
             // 
@@ -249,8 +239,6 @@ namespace Examination
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Data.SqlClient.SqlConnection sqlConnection1;
-        private System.Data.SqlClient.SqlCommand sqlCommand1;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;

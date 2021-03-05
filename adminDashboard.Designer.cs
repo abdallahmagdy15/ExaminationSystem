@@ -81,11 +81,7 @@ namespace Examination
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-<<<<<<< HEAD
-            this.panel1.Size = new System.Drawing.Size(159, 486);
-=======
             this.panel1.Size = new System.Drawing.Size(150, 529);
->>>>>>> 6433664deb0b76c8e3395949edabe09eb25353ae
             this.panel1.TabIndex = 3;
             // 
             // button1
@@ -187,15 +183,13 @@ namespace Examination
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(627, 486);
             this.Controls.Add(this.btnGExam);
             this.Controls.Add(this.panel1);
-=======
+
             this.ClientSize = new System.Drawing.Size(836, 529);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnGExam);
->>>>>>> 6433664deb0b76c8e3395949edabe09eb25353ae
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminDashboard";
             this.Text = "adminDashboard";
