@@ -41,10 +41,12 @@ namespace Examination
             this.exDescLabel = new System.Windows.Forms.Label();
             this.noExamsLabel = new System.Windows.Forms.Label();
             this.History = new System.Windows.Forms.TabPage();
+            this.historyPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.TakeExam.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.History.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -173,6 +175,7 @@ namespace Examination
             // 
             // History
             // 
+            this.History.Controls.Add(this.historyPanel);
             this.History.Location = new System.Drawing.Point(4, 25);
             this.History.Name = "History";
             this.History.Padding = new System.Windows.Forms.Padding(3);
@@ -180,6 +183,19 @@ namespace Examination
             this.History.TabIndex = 1;
             this.History.Text = "History";
             this.History.UseVisualStyleBackColor = true;
+            // 
+            // historyPanel
+            // 
+            this.historyPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.historyPanel.AutoScroll = true;
+            this.historyPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.historyPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.historyPanel.Location = new System.Drawing.Point(3, 3);
+            this.historyPanel.Name = "historyPanel";
+            this.historyPanel.Padding = new System.Windows.Forms.Padding(8);
+            this.historyPanel.Size = new System.Drawing.Size(1035, 690);
+            this.historyPanel.TabIndex = 2;
+            this.historyPanel.WrapContents = false;
             // 
             // StudentDashboard
             // 
@@ -198,6 +214,7 @@ namespace Examination
             this.mainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.History.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -216,5 +233,6 @@ namespace Examination
         private System.Windows.Forms.Label stNameLabel;
         private System.Windows.Forms.FlowLayoutPanel mainPanel;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.FlowLayoutPanel historyPanel;
     }
 }
