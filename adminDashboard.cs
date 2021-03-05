@@ -20,13 +20,36 @@ namespace Examination
         private void btnStudent_Click(object sender, EventArgs e)
         {
             ManageStudent mStudent = new ManageStudent();
-            this.Visible = false;
+            //this.Visible = false;
+            // mStudent.ShowDialog();
+            this.Hide();
             mStudent.ShowDialog();
+            this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCourses_Click(object sender, EventArgs e)
+        {
+            ManageCourse mCourse = new ManageCourse();
+            //this.Visible = false;
+           // mCourse.ShowDialog();
+            this.Hide();
+            mCourse.ShowDialog();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ManageInstructor mInstructor = new ManageInstructor();
+           // this.Visible = false;
+            //.ShowDialog();
+            this.Hide();
+            mInstructor.ShowDialog();
+            this.Close();
         }
     }
 }

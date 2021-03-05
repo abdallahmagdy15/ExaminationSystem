@@ -45,6 +45,7 @@ namespace Examination
             this.Visible = false;
             AdminDashboard admin = new AdminDashboard();
             admin.ShowDialog();
+            
             //this.Close();
         }
 

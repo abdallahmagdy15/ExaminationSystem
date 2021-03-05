@@ -61,11 +61,29 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageCourse.Designer.cs">
+      <DependentUpon>ManageCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageInstructor.Designer.cs">
+      <DependentUpon>ManageInstructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageStudent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageStudent.Designer.cs">
       <DependentUpon>ManageStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageTopic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageTopic.Designer.cs">
+      <DependentUpon>ManageTopic.cs</DependentUpon>
     </Compile>
     <Compile Include="MangeDepartment.cs">
       <SubType>Form</SubType>
@@ -89,8 +107,17 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageCourse.resx">
+      <DependentUpon>ManageCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageInstructor.resx">
+      <DependentUpon>ManageInstructor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageStudent.resx">
       <DependentUpon>ManageStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageTopic.resx">
+      <DependentUpon>ManageTopic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MangeDepartment.resx">
       <DependentUpon>MangeDepartment.cs</DependentUpon>
