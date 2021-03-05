@@ -47,6 +47,8 @@ namespace Examination
                     crsLabel.Text = crsLabel.Text + dr.GetString(3);
                     dateLabel.Text = dateLabel.Text +
                         DateTime.UtcNow.ToString("MM-dd-yyyy");
+                    dr.Close();
+                    LoginForm.sqlConnection1.Close();
                     //
                     //
                     SetupExamQuestions();

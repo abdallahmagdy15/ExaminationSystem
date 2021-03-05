@@ -31,16 +31,16 @@ namespace Examination
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TakeExam = new System.Windows.Forms.TabPage();
-            this.noExamsLabel = new System.Windows.Forms.Label();
-            this.History = new System.Windows.Forms.TabPage();
-            this.dateLabel = new System.Windows.Forms.Label();
-            this.crsLabel = new System.Windows.Forms.Label();
-            this.durationLabel = new System.Windows.Forms.Label();
-            this.exDescLabel = new System.Windows.Forms.Label();
-            this.deptLabel = new System.Windows.Forms.Label();
-            this.stNameLabel = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.stNameLabel = new System.Windows.Forms.Label();
+            this.crsLabel = new System.Windows.Forms.Label();
+            this.deptLabel = new System.Windows.Forms.Label();
+            this.durationLabel = new System.Windows.Forms.Label();
+            this.exDescLabel = new System.Windows.Forms.Label();
+            this.noExamsLabel = new System.Windows.Forms.Label();
+            this.History = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.TakeExam.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -71,86 +71,6 @@ namespace Examination
             this.TakeExam.Text = "Take Exam";
             this.TakeExam.UseVisualStyleBackColor = true;
             // 
-            // noExamsLabel
-            // 
-            this.noExamsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.noExamsLabel.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.noExamsLabel.Location = new System.Drawing.Point(429, 314);
-            this.noExamsLabel.Name = "noExamsLabel";
-            this.noExamsLabel.Size = new System.Drawing.Size(158, 46);
-            this.noExamsLabel.TabIndex = 0;
-            this.noExamsLabel.Text = "No Exams Found!\r\nTry Again Later";
-            // 
-            // History
-            // 
-            this.History.Location = new System.Drawing.Point(4, 25);
-            this.History.Name = "History";
-            this.History.Padding = new System.Windows.Forms.Padding(3);
-            this.History.Size = new System.Drawing.Size(1041, 701);
-            this.History.TabIndex = 1;
-            this.History.Text = "History";
-            this.History.UseVisualStyleBackColor = true;
-            // 
-            // dateLabel
-            // 
-            this.dateLabel.AutoSize = true;
-            this.dateLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.dateLabel.Location = new System.Drawing.Point(674, 47);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(50, 17);
-            this.dateLabel.TabIndex = 6;
-            this.dateLabel.Text = "Date : ";
-            // 
-            // crsLabel
-            // 
-            this.crsLabel.AutoSize = true;
-            this.crsLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.crsLabel.Location = new System.Drawing.Point(674, 30);
-            this.crsLabel.Name = "crsLabel";
-            this.crsLabel.Size = new System.Drawing.Size(64, 17);
-            this.crsLabel.TabIndex = 4;
-            this.crsLabel.Text = "Course : ";
-            // 
-            // durationLabel
-            // 
-            this.durationLabel.AutoSize = true;
-            this.durationLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.durationLabel.Location = new System.Drawing.Point(344, 47);
-            this.durationLabel.Name = "durationLabel";
-            this.durationLabel.Size = new System.Drawing.Size(113, 17);
-            this.durationLabel.TabIndex = 3;
-            this.durationLabel.Text = "Exam Duration : ";
-            // 
-            // exDescLabel
-            // 
-            this.exDescLabel.AutoSize = true;
-            this.exDescLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.exDescLabel.Location = new System.Drawing.Point(344, 30);
-            this.exDescLabel.Name = "exDescLabel";
-            this.exDescLabel.Size = new System.Drawing.Size(128, 17);
-            this.exDescLabel.TabIndex = 2;
-            this.exDescLabel.Text = "Exam Description : ";
-            // 
-            // deptLabel
-            // 
-            this.deptLabel.AutoSize = true;
-            this.deptLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.deptLabel.Location = new System.Drawing.Point(21, 47);
-            this.deptLabel.Name = "deptLabel";
-            this.deptLabel.Size = new System.Drawing.Size(95, 17);
-            this.deptLabel.TabIndex = 1;
-            this.deptLabel.Text = "Department : ";
-            // 
-            // stNameLabel
-            // 
-            this.stNameLabel.AutoSize = true;
-            this.stNameLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.stNameLabel.Location = new System.Drawing.Point(21, 30);
-            this.stNameLabel.Name = "stNameLabel";
-            this.stNameLabel.Size = new System.Drawing.Size(109, 17);
-            this.stNameLabel.TabIndex = 0;
-            this.stNameLabel.Text = "Student Name : ";
-            // 
             // mainPanel
             // 
             this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -158,7 +78,7 @@ namespace Examination
             this.mainPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.mainPanel.Controls.Add(this.panel1);
             this.mainPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.mainPanel.Location = new System.Drawing.Point(0, 3);
+            this.mainPanel.Location = new System.Drawing.Point(6, 6);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Padding = new System.Windows.Forms.Padding(8);
             this.mainPanel.Size = new System.Drawing.Size(1045, 699);
@@ -181,14 +101,92 @@ namespace Examination
             this.panel1.Size = new System.Drawing.Size(1016, 100);
             this.panel1.TabIndex = 1;
             // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.dateLabel.Location = new System.Drawing.Point(674, 47);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(50, 17);
+            this.dateLabel.TabIndex = 6;
+            this.dateLabel.Text = "Date : ";
+            // 
+            // stNameLabel
+            // 
+            this.stNameLabel.AutoSize = true;
+            this.stNameLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.stNameLabel.Location = new System.Drawing.Point(21, 30);
+            this.stNameLabel.Name = "stNameLabel";
+            this.stNameLabel.Size = new System.Drawing.Size(109, 17);
+            this.stNameLabel.TabIndex = 0;
+            this.stNameLabel.Text = "Student Name : ";
+            // 
+            // crsLabel
+            // 
+            this.crsLabel.AutoSize = true;
+            this.crsLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.crsLabel.Location = new System.Drawing.Point(674, 30);
+            this.crsLabel.Name = "crsLabel";
+            this.crsLabel.Size = new System.Drawing.Size(64, 17);
+            this.crsLabel.TabIndex = 4;
+            this.crsLabel.Text = "Course : ";
+            // 
+            // deptLabel
+            // 
+            this.deptLabel.AutoSize = true;
+            this.deptLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.deptLabel.Location = new System.Drawing.Point(21, 47);
+            this.deptLabel.Name = "deptLabel";
+            this.deptLabel.Size = new System.Drawing.Size(95, 17);
+            this.deptLabel.TabIndex = 1;
+            this.deptLabel.Text = "Department : ";
+            // 
+            // durationLabel
+            // 
+            this.durationLabel.AutoSize = true;
+            this.durationLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.durationLabel.Location = new System.Drawing.Point(344, 47);
+            this.durationLabel.Name = "durationLabel";
+            this.durationLabel.Size = new System.Drawing.Size(113, 17);
+            this.durationLabel.TabIndex = 3;
+            this.durationLabel.Text = "Exam Duration : ";
+            // 
+            // exDescLabel
+            // 
+            this.exDescLabel.AutoSize = true;
+            this.exDescLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.exDescLabel.Location = new System.Drawing.Point(344, 30);
+            this.exDescLabel.Name = "exDescLabel";
+            this.exDescLabel.Size = new System.Drawing.Size(128, 17);
+            this.exDescLabel.TabIndex = 2;
+            this.exDescLabel.Text = "Exam Description : ";
+            // 
+            // noExamsLabel
+            // 
+            this.noExamsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.noExamsLabel.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.noExamsLabel.Location = new System.Drawing.Point(429, 314);
+            this.noExamsLabel.Name = "noExamsLabel";
+            this.noExamsLabel.Size = new System.Drawing.Size(158, 46);
+            this.noExamsLabel.TabIndex = 0;
+            this.noExamsLabel.Text = "No Exams Found!\r\nTry Again Later";
+            // 
+            // History
+            // 
+            this.History.Location = new System.Drawing.Point(4, 25);
+            this.History.Name = "History";
+            this.History.Padding = new System.Windows.Forms.Padding(3);
+            this.History.Size = new System.Drawing.Size(1041, 696);
+            this.History.TabIndex = 1;
+            this.History.Text = "History";
+            this.History.UseVisualStyleBackColor = true;
+            // 
             // StudentDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1073, 749);
-            this.Controls.Add(this.mainPanel);
             this.ClientSize = new System.Drawing.Size(1073, 754);
             this.Controls.Add(this.tabControl1);
             this.Name = "StudentDashboard";
