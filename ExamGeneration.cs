@@ -32,13 +32,21 @@ namespace Examination
                 while (sdReader.Read())
                 {
                     KeyValuePair<int, string> crs = new KeyValuePair<int, string>(sdReader.GetInt32(0), sdReader.GetString(1));
-                    comboBox1.Items.Add(crs);
+                    comboBoxCrsName.Items.Add(crs);
+                    //Dictionary<int, string> crs = new Dictionary<int, string>()
+                    //{
+                    //    { sdReader.GetInt32(0), sdReader.GetString(1) }
+                    //};
+                    //foreach (KeyValuePair<int, string> item in crs)
+                    //{
+                    //    comboBoxCrsName.Items.Add(item.Value);
+                    //}
                 }
                 sdReader.Close();
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show("Load Is Not Completed Correctly" + err.Message);
                 throw;
             }
             finally
@@ -69,10 +77,10 @@ namespace Examination
                 MessageBox.Show("Fields can't be empty!");
                 return;
             }
-            string exDesc = textBox1.Text;
-            int exDuration = (int)(numericUpDown1.Value);
-            int MCQ_QNum = int.Parse(textBox2.Text);
-            int TF_QNum = int.Parse(textBox3.Text);
+            string exDesc = textBoxExDesc.Text;
+            int exDuration = (int)(numericUpDownExDurataion.Value);
+            int MCQ_QNum = int.Parse(textBoxMCQNum.Text);
+            int TF_QNum = int.Parse(textBoxTFNum.Text);
 
             try
             {
@@ -80,7 +88,7 @@ namespace Examination
 
                 SqlCommand command = new SqlCommand("generateExam", LoginForm.sqlConnection1);
                 command.CommandType = CommandType.StoredProcedure;
-                KeyValuePair<int, string> course = (KeyValuePair<int, string>)comboBox1.SelectedItem;
+                KeyValuePair<int, string> course = (KeyValuePair<int, string>)comboBoxCrsName.SelectedItem;
                 command.Parameters.AddWithValue("@CourseId", SqlDbType.Int).Value = course.Key;
                 command.Parameters.AddWithValue("@Ex_Desc", SqlDbType.NVarChar).Value = exDesc;
                 command.Parameters.AddWithValue("@N_MCQ", SqlDbType.Int).Value = MCQ_QNum;
@@ -91,7 +99,7 @@ namespace Examination
                 LoginForm.sqlConnection1.Close();
                 command.Parameters.Clear();
                 MessageBox.Show("New Exam Generated Successfully");
-                textBox1.Text = string.Empty;
+                textBoxExDesc.Text = string.Empty;
             }
             catch (Exception exception)
             {
@@ -100,9 +108,18 @@ namespace Examination
             }
 
         }
-        bool isValid()
+        public bool isValid()
         {
+            if (comboBoxCrsName.SelectedIndex == -1 || numericUpDownExDurataion.Value == 0)
+            {
+                return false;
+            }
+            if (textBoxExDesc.Text.Trim() == string.Empty || textBoxMCQNum.Text.Trim() == string.Empty || textBoxTFNum.Text.Trim() == string.Empty)
+            {
+                return false;
+            }
             return true;
+
         }
 
 

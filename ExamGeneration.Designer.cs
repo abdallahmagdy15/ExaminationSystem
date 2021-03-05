@@ -29,36 +29,35 @@ namespace Examination
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCrsName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxExDesc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownExDurataion = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            
+            this.textBoxMCQNum = new System.Windows.Forms.TextBox();
+            this.textBoxTFNum = new System.Windows.Forms.TextBox();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownExDurataion)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboBoxCrsName
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(423, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(248, 24);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxCrsName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCrsName.FormattingEnabled = true;
+            this.comboBoxCrsName.Location = new System.Drawing.Point(423, 75);
+            this.comboBoxCrsName.Name = "comboBoxCrsName";
+            this.comboBoxCrsName.Size = new System.Drawing.Size(248, 24);
+            this.comboBoxCrsName.TabIndex = 0;
+            this.comboBoxCrsName.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -82,13 +81,13 @@ namespace Examination
             this.label2.TabIndex = 3;
             this.label2.Text = "Exam Description :";
             // 
-            // textBox1
+            // textBoxExDesc
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(423, 133);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(248, 22);
-            this.textBox1.TabIndex = 4;
+            this.textBoxExDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxExDesc.Location = new System.Drawing.Point(423, 133);
+            this.textBoxExDesc.Name = "textBoxExDesc";
+            this.textBoxExDesc.Size = new System.Drawing.Size(248, 22);
+            this.textBoxExDesc.TabIndex = 4;
             // 
             // label3
             // 
@@ -101,13 +100,13 @@ namespace Examination
             this.label3.TabIndex = 5;
             this.label3.Text = "Exam Duration :";
             // 
-            // numericUpDown1
+            // numericUpDownExDurataion
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(423, 195);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(248, 22);
-            this.numericUpDown1.TabIndex = 6;
+            this.numericUpDownExDurataion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownExDurataion.Location = new System.Drawing.Point(423, 195);
+            this.numericUpDownExDurataion.Name = "numericUpDownExDurataion";
+            this.numericUpDownExDurataion.Size = new System.Drawing.Size(248, 22);
+            this.numericUpDownExDurataion.TabIndex = 6;
             // 
             // label4
             // 
@@ -131,22 +130,21 @@ namespace Examination
             this.label5.TabIndex = 8;
             this.label5.Text = "Number Of True/False :";
             // 
-            // textBox2
+            // textBoxMCQNum
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(423, 251);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(248, 22);
-            this.textBox2.TabIndex = 9;
+            this.textBoxMCQNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMCQNum.Location = new System.Drawing.Point(423, 251);
+            this.textBoxMCQNum.Name = "textBoxMCQNum";
+            this.textBoxMCQNum.Size = new System.Drawing.Size(248, 22);
+            this.textBoxMCQNum.TabIndex = 9;
             // 
-            // textBox3
+            // textBoxTFNum
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(423, 302);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(248, 22);
-            this.textBox3.TabIndex = 10;
-            
+            this.textBoxTFNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTFNum.Location = new System.Drawing.Point(423, 302);
+            this.textBoxTFNum.Name = "textBoxTFNum";
+            this.textBoxTFNum.Size = new System.Drawing.Size(248, 22);
+            this.textBoxTFNum.TabIndex = 10;
             // 
             // btnGenerate
             // 
@@ -206,19 +204,19 @@ namespace Examination
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnGenerate);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxTFNum);
+            this.Controls.Add(this.textBoxMCQNum);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numericUpDownExDurataion);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxExDesc);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxCrsName);
             this.Name = "ExamGeneration";
             this.Text = "ExamGeneration";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownExDurataion)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -229,16 +227,16 @@ namespace Examination
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxCrsName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxExDesc;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDownExDurataion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxMCQNum;
+        private System.Windows.Forms.TextBox textBoxTFNum;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
