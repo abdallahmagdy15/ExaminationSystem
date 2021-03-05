@@ -19,10 +19,12 @@ namespace Examination
         {
             InitializeComponent();
             SetupExamInfo();
-            SetupExamQuestions();
         }
         void SetupExamInfo()
         {
+            //
+            // TODO: check if student already take this exam!!!!!!!!!!!!!!!!!!!
+            //
             //get current exam on this date 
             LoginForm.sqlCommand1.CommandText = "GetCurrentRandExam @St_Id";
             LoginForm.sqlCommand1.Parameters.AddWithValue("@St_Id", LoginForm.CurrentStudent.StId);
@@ -45,7 +47,14 @@ namespace Examination
                     crsLabel.Text = crsLabel.Text + dr.GetString(3);
                     dateLabel.Text = dateLabel.Text +
                         DateTime.UtcNow.ToString("MM-dd-yyyy");
+                    dr.Close();
+                    LoginForm.sqlConnection1.Close();
+                    //
+                    //
+                    SetupExamQuestions();
                 }
+
+
             }
             catch (Exception err)
             {
@@ -63,6 +72,7 @@ namespace Examination
 
         void SetupExamQuestions()
         {
+            
             //get exam questions
             LoginForm.sqlCommand1.CommandText = "[Get_ExamQuestions_by_ExamID] @Ex_Id";
             LoginForm.sqlCommand1.Parameters.AddWithValue("@Ex_Id", exam.Ex_Id);
