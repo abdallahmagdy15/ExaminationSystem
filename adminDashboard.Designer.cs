@@ -38,6 +38,7 @@ namespace Examination
             this.btnExam = new System.Windows.Forms.Button();
             this.btnDepartments = new System.Windows.Forms.Button();
             this.btnCourses = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,6 +121,7 @@ namespace Examination
             this.btnExam.TabIndex = 4;
             this.btnExam.Text = "Exams";
             this.btnExam.UseVisualStyleBackColor = false;
+            this.btnExam.Click += new System.EventHandler(this.btnExam_Click);
             // 
             // btnDepartments
             // 
@@ -148,11 +150,24 @@ namespace Examination
             this.btnCourses.Text = "Courses";
             this.btnCourses.UseVisualStyleBackColor = false;
             // 
+            // btnGExam
+            // 
+            this.btnGExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.btnGExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGExam.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnGExam.Location = new System.Drawing.Point(206, 122);
+            this.btnGExam.Name = "btnGExam";
+            this.btnGExam.Size = new System.Drawing.Size(363, 34);
+            this.btnGExam.TabIndex = 1;
+            this.btnGExam.Text = "Generate Exam";
+            this.btnGExam.UseVisualStyleBackColor = false;
+            this.btnGExam.Click += new System.EventHandler(this.btnGExam_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 430);
+            this.ClientSize = new System.Drawing.Size(836, 529);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminDashboard";
@@ -174,5 +189,6 @@ namespace Examination
         private System.Windows.Forms.Button btnDepartments;
         private System.Windows.Forms.Button btnCourses;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnGExam;
     }
 }

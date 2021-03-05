@@ -55,6 +55,12 @@
     </Compile>
     <Compile Include="Choice.cs" />
     <Compile Include="Exam.cs" />
+    <Compile Include="ExamGeneration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamGeneration.Designer.cs">
+      <DependentUpon>ExamGeneration.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </Compile>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamGeneration.resx">
+      <DependentUpon>ExamGeneration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

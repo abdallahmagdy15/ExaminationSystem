@@ -29,6 +29,18 @@ namespace Examination
 
         }
 
+        private void btnExam_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnGExam_Click(object sender, EventArgs e)
+        {
+            ExamGeneration exGenerate = new ExamGeneration();
+            this.Visible = false;
+            exGenerate.ShowDialog();
+        }
+
         private void btnDepartments_Click(object sender, EventArgs e)
         {
             MangeDepartment form = new MangeDepartment();
