@@ -28,5 +28,12 @@ namespace Examination
         {
 
         }
+
+        private void btnDepartments_Click(object sender, EventArgs e)
+        {
+            MangeDepartment form = new MangeDepartment();
+            this.Visible = false;
+            form.ShowDialog();
+        }
     }
 }

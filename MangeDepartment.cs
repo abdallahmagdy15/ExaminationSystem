@@ -139,7 +139,7 @@ namespace Examination
             catch
             {
                 MessageBox.Show("Error");
-
+                throw;
             }
         }
     }

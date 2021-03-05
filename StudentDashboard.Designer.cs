@@ -61,6 +61,7 @@ namespace Examination
             // 
             // TakeExam
             // 
+            this.TakeExam.Controls.Add(this.mainPanel);
             this.TakeExam.Controls.Add(this.noExamsLabel);
             this.TakeExam.Location = new System.Drawing.Point(4, 25);
             this.TakeExam.Name = "TakeExam";
@@ -72,9 +73,9 @@ namespace Examination
             // 
             // noExamsLabel
             // 
-            this.noExamsLabel.AutoSize = true;
+            this.noExamsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.noExamsLabel.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.noExamsLabel.Location = new System.Drawing.Point(372, 225);
+            this.noExamsLabel.Location = new System.Drawing.Point(429, 314);
             this.noExamsLabel.Name = "noExamsLabel";
             this.noExamsLabel.Size = new System.Drawing.Size(158, 46);
             this.noExamsLabel.TabIndex = 0;
@@ -157,7 +158,7 @@ namespace Examination
             this.mainPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.mainPanel.Controls.Add(this.panel1);
             this.mainPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.mainPanel.Location = new System.Drawing.Point(12, 34);
+            this.mainPanel.Location = new System.Drawing.Point(0, 3);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Padding = new System.Windows.Forms.Padding(8);
             this.mainPanel.Size = new System.Drawing.Size(1045, 704);
@@ -187,7 +188,6 @@ namespace Examination
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1073, 754);
-            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.tabControl1);
             this.Name = "StudentDashboard";
             this.Text = "StudentDashboard";
@@ -195,7 +195,6 @@ namespace Examination
             this.Load += new System.EventHandler(this.StudentDashboard_Load);
             this.tabControl1.ResumeLayout(false);
             this.TakeExam.ResumeLayout(false);
-            this.TakeExam.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
