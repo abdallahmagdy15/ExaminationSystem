@@ -33,13 +33,13 @@ namespace Examination
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.btnStudent = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.questionsBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnExam = new System.Windows.Forms.Button();
-            this.btnGExam = new System.Windows.Forms.Button();
             this.btnDepartments = new System.Windows.Forms.Button();
             this.btnCourses = new System.Windows.Forms.Button();
+            this.btnGExam = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +70,7 @@ namespace Examination
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.questionsBtn);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnReports);
             this.panel1.Controls.Add(this.btnExam);
@@ -81,49 +81,23 @@ namespace Examination
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 430);
+            this.panel1.Size = new System.Drawing.Size(150, 529);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button1
+            // questionsBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(9, 180);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 41);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Instructor";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(12, 53);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Admin Dashboard";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(9, 434);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 41);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Questions";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.questionsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.questionsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.questionsBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.questionsBtn.Location = new System.Drawing.Point(9, 434);
+            this.questionsBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.questionsBtn.Name = "questionsBtn";
+            this.questionsBtn.Size = new System.Drawing.Size(139, 41);
+            this.questionsBtn.TabIndex = 7;
+            this.questionsBtn.Text = "Questions";
+            this.questionsBtn.UseVisualStyleBackColor = false;
+            this.questionsBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -166,19 +140,6 @@ namespace Examination
             this.btnExam.UseVisualStyleBackColor = false;
             this.btnExam.Click += new System.EventHandler(this.btnExam_Click);
             // 
-            // btnGExam
-            // 
-            this.btnGExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.btnGExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGExam.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnGExam.Location = new System.Drawing.Point(298, 119);
-            this.btnGExam.Name = "btnGExam";
-            this.btnGExam.Size = new System.Drawing.Size(363, 56);
-            this.btnGExam.TabIndex = 1;
-            this.btnGExam.Text = "Generate Exam";
-            this.btnGExam.UseVisualStyleBackColor = false;
-            this.btnGExam.Click += new System.EventHandler(this.btnGExam_Click);
-            // 
             // btnDepartments
             // 
             this.btnDepartments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
@@ -207,33 +168,28 @@ namespace Examination
             this.btnCourses.UseVisualStyleBackColor = false;
             this.btnCourses.Click += new System.EventHandler(this.btnCourses_Click);
             // 
-            // AdminDashboard
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(627, 486);
-            this.Controls.Add(this.btnGExam);
-            this.Controls.Add(this.panel1);
-
-            this.ClientSize = new System.Drawing.Size(836, 529);
-            this.ClientSize = new System.Drawing.Size(627, 430);
-            this.label1.Name = "label1";
-            this.Controls.Add(this.btnGExam);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "AdminDashboard";
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "AdminDashboard";
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Admin Dashboard";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // btnGExam
             // 
-            // adminDashboard
+            this.btnGExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.btnGExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGExam.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnGExam.Location = new System.Drawing.Point(298, 119);
+            this.btnGExam.Name = "btnGExam";
+            this.btnGExam.Size = new System.Drawing.Size(363, 56);
+            this.btnGExam.TabIndex = 1;
+            this.btnGExam.Text = "Generate Exam";
+            this.btnGExam.UseVisualStyleBackColor = false;
+            this.btnGExam.Click += new System.EventHandler(this.btnGExam_Click);
+            // 
+            // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 529);
+            this.Controls.Add(this.btnGExam);
             this.Controls.Add(this.panel1);
-            this.Name = "adminDashboard";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "AdminDashboard";
             this.Text = "adminDashboard";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -242,8 +198,8 @@ namespace Examination
         }
 
         private System.Windows.Forms.Button btnGExam;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button questionsBtn;
+        private System.Windows.Forms.Button btn;
         #endregion
 
         private System.Data.SqlClient.SqlCommand sqlCommand1;
