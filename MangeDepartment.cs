@@ -23,13 +23,20 @@ namespace Examination
             string DName = txtFName.Text;
             string MngrId = txtSMangerId.Text;
             string HireDate = txtHireDate.Text;
-            string Did = BoxDepId.Text;
+            //string Did = BoxDepId.Text;
 
-            string insert = "insertDepartment @Did, @DName, @MngrId,@HireDate";
+
+            if (DName == "" || DName == null && MngrId == "" || MngrId == null && HireDate == "" || HireDate == null )
+            {
+                MessageBox.Show("Please enter valid Data");
+                return;
+            }
+           
+
+                string insert = "insertDepartment @DName, @MngrId,@HireDate";
 
             try
             {
-                sqlCommand1.Parameters.AddWithValue("@Did", Did);
                 sqlCommand1.Parameters.AddWithValue("@DName", DName);
                 sqlCommand1.Parameters.AddWithValue("@HireDate", HireDate);
                 sqlCommand1.Parameters.AddWithValue("@MngrId", MngrId);
@@ -39,7 +46,7 @@ namespace Examination
                 int AffectedRows = sqlCommand1.ExecuteNonQuery();
                 sqlConnection1.Close();
                 MessageBox.Show(AffectedRows + " Department Added");
-                Did = DName =  HireDate = MngrId = string.Empty;
+                DName =  HireDate = MngrId = string.Empty;
             }
             catch (Exception ex)
             {
@@ -59,6 +66,12 @@ namespace Examination
             string MngrId = txtSMangerId.Text;
             string HireDate = txtHireDate.Text;
             string Did = BoxDepId.Text;
+
+            if (Did == "" || Did == null &&  DName == "" || DName == null && MngrId == "" || MngrId == null && HireDate == "" || HireDate == null)
+            {
+                MessageBox.Show("Please enter valid Data");
+                return;
+            }
 
             string Update = "updateDepartmentByid @Did, @DName, @MngrId,@HireDate";
             try
@@ -87,11 +100,18 @@ namespace Examination
         {
 
             int flag = 0;
-            int id = 0;
+            string Did = BoxDepId.Text;
+            if (Did == "" || Did == null)
+            {
+                MessageBox.Show("Please enter valid ID");
+                return;
+            }
+            int id = int.Parse(BoxDepId.Text);
+
+
             try
             {
 
-                id = int.Parse(BoxDepId.Text);
                 string FindDept = "getDeptById @id";
                 sqlCommand1.Parameters.AddWithValue("@id", id);
                 sqlCommand1.CommandText = FindDept;
@@ -121,6 +141,11 @@ namespace Examination
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string Did = BoxDepId.Text;
+            if(Did == "" || Did == null)
+            {
+                MessageBox.Show("please enter valid id");
+                return;
+            }
 
             string DeleteDept = "DeleteDeptById @Did";
             try
@@ -132,14 +157,16 @@ namespace Examination
                 sqlConnection1.Open();
                 int AffectedRows = sqlCommand1.ExecuteNonQuery();
                 sqlConnection1.Close();
+                
                 MessageBox.Show(AffectedRows + " Department Deleted");
                 Did  = string.Empty;
 
             }
             catch
             {
-                MessageBox.Show("Error");
-                throw;
+                MessageBox.Show("This id doesnot exist please enter valid id");
+                return;
+                
             }
         }
     }

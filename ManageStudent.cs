@@ -20,6 +20,7 @@ namespace Examination
 
         private void mangeStudent_Load(object sender, EventArgs e)
         {
+            //txtSid.Visible = false;
             string loadDepartment = "SELECT Dept_Id FROM Department";
             try
             {
@@ -50,16 +51,21 @@ namespace Examination
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string Id = txtSid.Text;
+            //string Id = txtSid.Text;
             string fName = txtFName.Text;
             string lName = txtlname.Text;
             string BD = txtStBd.Text;
             string Did = BoxDepId.Text;
-            
-            string insert = "insertStudent @id, @fName, @lName, @BD, @Did";
+
+            if(fName == "" || fName == null && lName == "" || lName == null && BD == "" || BD == null && Did == "" || Did == null)
+            {
+                MessageBox.Show("Please enter valid Data");
+                return;
+            }
+            string insert = "insertStudent @fName, @lName, @BD, @Did";
             try
             {
-                sqlCommand1.Parameters.AddWithValue("@id", Id);
+                //sqlCommand1.Parameters.AddWithValue("@id", Id);
                 sqlCommand1.Parameters.AddWithValue("@fName", fName);
                 sqlCommand1.Parameters.AddWithValue("@lName", lName);
                 sqlCommand1.Parameters.AddWithValue("@BD", BD);
@@ -70,7 +76,7 @@ namespace Examination
                 int AffectedRows = sqlCommand1.ExecuteNonQuery();
                 sqlConnection1.Close();
                 MessageBox.Show(AffectedRows + " Student Added");
-                Id = fName = lName = BD = Did = string.Empty;
+                fName = lName = BD = Did = string.Empty;
             }
             catch(Exception ex)
             {
@@ -83,11 +89,18 @@ namespace Examination
         {
             
             int flag = 0;
-            int id=0;
+            string Id = txtSid.Text;
+            if (Id == null || Id == "")
+            {
+                MessageBox.Show("Please enter valid ID");
+                return;
+            }
+
+            int id = int.Parse(txtSid.Text);
+
             try
             {
                 
-                 id = int.Parse(txtSid.Text); 
                 string FindStudent = "GetSTudentData_byID @id";
                 sqlCommand1.Parameters.AddWithValue("@id", id);
                 sqlCommand1.CommandText = FindStudent;
@@ -135,6 +148,12 @@ namespace Examination
             string BD = txtStBd.Text;
             string Did = BoxDepId.Text;
 
+            if (Id == "" || Id == null && fName == "" || fName == null && lName == "" || lName == null && BD == "" || BD == null && Did == "" || Did == null)
+            {
+                MessageBox.Show("Please enter valid Data");
+                return;
+            }
+
             string Update = "updateStudent @id,@fName,@lName,@BD,@Did";
             try
             {
@@ -163,7 +182,11 @@ namespace Examination
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string id = txtSid.Text;
-
+            if (id == "" || id == null)
+            {
+                MessageBox.Show("Please enter valid ID");
+                return;
+            }
             string DeleteStudent = "DeleteStById @id";
             try
             {
@@ -180,7 +203,8 @@ namespace Examination
             }
             catch
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("This id doesnot exist please enter valid id");
+                return;
 
             }
         }
