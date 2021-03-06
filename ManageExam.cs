@@ -155,7 +155,12 @@ namespace Examination
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            if(cmBoxExId.Text == "" || cmBoxExId.SelectedItem == null)
+            {
+                MessageBox.Show("Select Exam");
+                return;
+            }
+            
             sqlConnection1.Close();
 
             string ExId = cmBoxExId.SelectedItem.ToString();
