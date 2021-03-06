@@ -112,6 +112,12 @@ namespace Examination
             catch(System.NullReferenceException ex)
             {
                 MessageBox.Show("this Id " + id + " Not exist");
+                throw;
+            }
+            finally
+            {
+                sqlConnection1.Close();
+                sqlCommand1.Parameters.Clear();
             }
             
         }
