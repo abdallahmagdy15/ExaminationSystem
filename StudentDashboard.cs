@@ -18,6 +18,9 @@ namespace Examination
         public StudentDashboard()
         {
             InitializeComponent();
+            StName.Text = LoginForm.CurrentStudent.FullName;
+            StDept.Text = LoginForm.CurrentStudent.DeparmentName;
+            StBD.Text = LoginForm.CurrentStudent.BirthDate.ToString();
             SetupExamInfo();
             SetupExamsHistory();
         }
@@ -297,7 +300,7 @@ namespace Examination
                 {
                     Console.WriteLine(dr.GetDateTime(2));
                     StGradesList.Add(new StudentGrade(dr.GetString(0), dr.GetInt32(1),
-                        dr.GetDateTime(2), dr.GetString(3), dr.GetInt32(4),dr.GetInt32(5)));
+                        dr.GetDateTime(2), dr.GetString(3), dr.GetInt32(4), dr.GetInt32(5)));
                 }
                 ShowStudentGrades(StGradesList);
             }
@@ -341,20 +344,20 @@ namespace Examination
                 // 
                 dateLabel.AutoSize = true;
                 dateLabel.Font = new System.Drawing.Font("Tahoma", 12F);
-                dateLabel.Location = new System.Drawing.Point(410, pY+38);
+                dateLabel.Location = new System.Drawing.Point(410, pY + 38);
                 dateLabel.Name = "dateLabel" + g.ExId;
                 dateLabel.Size = new System.Drawing.Size(57, 19);
                 dateLabel.TabIndex = 6;
-                dateLabel.Text = "Date : "+g.ExDate.ToString();
+                dateLabel.Text = "Date : " + g.ExDate.ToString();
                 // 
                 // 
                 crsLabel.AutoSize = true;
                 crsLabel.Font = new System.Drawing.Font("Tahoma", 12F);
-                crsLabel.Location = new System.Drawing.Point(410, pY+19);
+                crsLabel.Location = new System.Drawing.Point(410, pY + 19);
                 crsLabel.Name = "crsLabel" + g.ExId;
                 crsLabel.Size = new System.Drawing.Size(74, 19);
                 crsLabel.TabIndex = 4;
-                crsLabel.Text = "Course : "+g.CrsName;
+                crsLabel.Text = "Course : " + g.CrsName;
                 // 
                 // 
                 durationLabel.AutoSize = true;
@@ -363,7 +366,7 @@ namespace Examination
                 durationLabel.Name = "durationLabel" + g.ExId;
                 durationLabel.Size = new System.Drawing.Size(130, 19);
                 durationLabel.TabIndex = 3;
-                durationLabel.Text = "Exam Duration : "+g.ExDuration;
+                durationLabel.Text = "Exam Duration : " + g.ExDuration;
                 // 
                 // 
                 descLabel.AutoSize = true;
@@ -372,7 +375,7 @@ namespace Examination
                 descLabel.Name = "descLabel" + g.ExId;
                 descLabel.Size = new System.Drawing.Size(148, 19);
                 descLabel.TabIndex = 2;
-                descLabel.Text = "Exam Description : "+g.ExDesc;
+                descLabel.Text = "Exam Description : " + g.ExDesc;
                 // 
                 // 
                 gradeLabel.AutoSize = true;
@@ -381,7 +384,7 @@ namespace Examination
                 gradeLabel.Name = "gradeLabel" + g.ExId;
                 gradeLabel.Size = new System.Drawing.Size(67, 19);
                 gradeLabel.TabIndex = 7;
-                gradeLabel.Text = "Grade : "+g.Grade;
+                gradeLabel.Text = "Grade : " + g.Grade;
                 //
                 pY += 100;
 
@@ -399,6 +402,19 @@ namespace Examination
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
                 SubmitAnswers();
+        }
+
+        private void AccountBtn_Click(object sender, EventArgs e)
+        {
+            accountCard.Visible = !accountCard.Visible;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Closed += (s, args) => this.Close();
+            loginForm.Show();
         }
     }
 }

@@ -33,14 +33,13 @@ namespace Examination
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.btnStudent = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.instBtn = new System.Windows.Forms.Button();
             this.questionsBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnReports = new System.Windows.Forms.Button();
             this.btnExam = new System.Windows.Forms.Button();
             this.btnDepartments = new System.Windows.Forms.Button();
             this.btnCourses = new System.Windows.Forms.Button();
             this.btnGExam = new System.Windows.Forms.Button();
-            this.instBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +58,7 @@ namespace Examination
             this.btnStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnStudent.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnStudent.Location = new System.Drawing.Point(18, 72);
+            this.btnStudent.Location = new System.Drawing.Point(21, 134);
             this.btnStudent.Margin = new System.Windows.Forms.Padding(2);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(130, 41);
@@ -74,7 +73,6 @@ namespace Examination
             this.panel1.Controls.Add(this.instBtn);
             this.panel1.Controls.Add(this.questionsBtn);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnReports);
             this.panel1.Controls.Add(this.btnExam);
             this.panel1.Controls.Add(this.btnDepartments);
             this.panel1.Controls.Add(this.btnCourses);
@@ -87,19 +85,33 @@ namespace Examination
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // instBtn
+            // 
+            this.instBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.instBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.instBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.instBtn.Location = new System.Drawing.Point(21, 247);
+            this.instBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.instBtn.Name = "instBtn";
+            this.instBtn.Size = new System.Drawing.Size(130, 41);
+            this.instBtn.TabIndex = 8;
+            this.instBtn.Text = "Instructor";
+            this.instBtn.UseVisualStyleBackColor = false;
+            this.instBtn.Click += new System.EventHandler(this.instBtn_Click);
+            // 
             // questionsBtn
             // 
             this.questionsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.questionsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.questionsBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.questionsBtn.Location = new System.Drawing.Point(18, 441);
+            this.questionsBtn.Location = new System.Drawing.Point(21, 438);
             this.questionsBtn.Margin = new System.Windows.Forms.Padding(2);
             this.questionsBtn.Name = "questionsBtn";
             this.questionsBtn.Size = new System.Drawing.Size(130, 41);
             this.questionsBtn.TabIndex = 7;
             this.questionsBtn.Text = "Questions";
             this.questionsBtn.UseVisualStyleBackColor = false;
-            this.questionsBtn.Click += new System.EventHandler(this.instBtn_Click);
+            this.questionsBtn.Click += new System.EventHandler(this.btn_Click);
             // 
             // label1
             // 
@@ -114,26 +126,13 @@ namespace Examination
             this.label1.Text = "Admin Dashboard";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // btnReports
-            // 
-            this.btnReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnReports.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnReports.Location = new System.Drawing.Point(18, 377);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(130, 41);
-            this.btnReports.TabIndex = 5;
-            this.btnReports.Text = "Reports";
-            this.btnReports.UseVisualStyleBackColor = false;
-            // 
             // btnExam
             // 
             this.btnExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnExam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumTurquoise;
             this.btnExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnExam.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnExam.Location = new System.Drawing.Point(18, 311);
+            this.btnExam.Location = new System.Drawing.Point(21, 373);
             this.btnExam.Margin = new System.Windows.Forms.Padding(2);
             this.btnExam.Name = "btnExam";
             this.btnExam.Size = new System.Drawing.Size(130, 41);
@@ -147,7 +146,7 @@ namespace Examination
             this.btnDepartments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnDepartments.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDepartments.Location = new System.Drawing.Point(18, 127);
+            this.btnDepartments.Location = new System.Drawing.Point(21, 189);
             this.btnDepartments.Margin = new System.Windows.Forms.Padding(2);
             this.btnDepartments.Name = "btnDepartments";
             this.btnDepartments.Size = new System.Drawing.Size(130, 41);
@@ -161,7 +160,7 @@ namespace Examination
             this.btnCourses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnCourses.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCourses.Location = new System.Drawing.Point(18, 245);
+            this.btnCourses.Location = new System.Drawing.Point(21, 307);
             this.btnCourses.Margin = new System.Windows.Forms.Padding(2);
             this.btnCourses.Name = "btnCourses";
             this.btnCourses.Size = new System.Drawing.Size(130, 41);
@@ -182,20 +181,6 @@ namespace Examination
             this.btnGExam.Text = "Generate Exam";
             this.btnGExam.UseVisualStyleBackColor = false;
             this.btnGExam.Click += new System.EventHandler(this.btnGExam_Click);
-            // 
-            // instBtn
-            // 
-            this.instBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.instBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.instBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.instBtn.Location = new System.Drawing.Point(18, 185);
-            this.instBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.instBtn.Name = "instBtn";
-            this.instBtn.Size = new System.Drawing.Size(130, 41);
-            this.instBtn.TabIndex = 8;
-            this.instBtn.Text = "Instructor";
-            this.instBtn.UseVisualStyleBackColor = false;
-            this.instBtn.Click += new System.EventHandler(this.instBtn_Click);
             // 
             // AdminDashboard
             // 
@@ -221,7 +206,6 @@ namespace Examination
         private System.Data.SqlClient.SqlConnection sqlConnection1;
         private System.Windows.Forms.Button btnStudent;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnExam;
         private System.Windows.Forms.Button btnDepartments;
         private System.Windows.Forms.Button btnCourses;

@@ -44,14 +44,14 @@ namespace Examination
             // 
             // loginBtn
             // 
-            this.loginBtn.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.loginBtn.BackColor = System.Drawing.Color.MidnightBlue;
             this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginBtn.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.loginBtn.Location = new System.Drawing.Point(132, 346);
+            this.loginBtn.Location = new System.Drawing.Point(132, 351);
             this.loginBtn.Margin = new System.Windows.Forms.Padding(2);
             this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(295, 33);
+            this.loginBtn.Size = new System.Drawing.Size(388, 45);
             this.loginBtn.TabIndex = 0;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = false;
@@ -64,7 +64,7 @@ namespace Examination
             this.unameTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.unameTxtBox.MaxLength = 50;
             this.unameTxtBox.Name = "unameTxtBox";
-            this.unameTxtBox.Size = new System.Drawing.Size(296, 33);
+            this.unameTxtBox.Size = new System.Drawing.Size(389, 33);
             this.unameTxtBox.TabIndex = 1;
             this.unameTxtBox.Text = "abdallahm";
             // 
@@ -75,7 +75,7 @@ namespace Examination
             this.passTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.passTxtBox.Name = "passTxtBox";
             this.passTxtBox.PasswordChar = '*';
-            this.passTxtBox.Size = new System.Drawing.Size(296, 33);
+            this.passTxtBox.Size = new System.Drawing.Size(389, 33);
             this.passTxtBox.TabIndex = 2;
             this.passTxtBox.Text = "12345678";
             // 
@@ -138,7 +138,7 @@ namespace Examination
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 549);
+            this.ClientSize = new System.Drawing.Size(654, 549);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
