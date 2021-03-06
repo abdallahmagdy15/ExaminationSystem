@@ -57,6 +57,23 @@ namespace Examination
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (cmBoxCrId.SelectedItem == null)
+            {
+                MessageBox.Show("select course");
+                return;
+            }
+            if (txtQnContent.Text == "" || txtQnGrade.Text == "" || txtCh1.Text == "" || txtCh2.Text == "" || txtCh3.Text == "" || txtCh4.Text == "" || txtQnAnswer.Text == "")
+            {
+                MessageBox.Show("need Content and grade and Answer and choices");
+                return;
+            }
+            if(txtQnAnswer.Text != txtCh1.Text || txtQnAnswer.Text != txtCh2.Text || txtQnAnswer.Text != txtCh3.Text || txtQnAnswer.Text != txtCh4.Text)
+            {
+                MessageBox.Show("invalid Answer");
+                return;
+            }
+
+
             try
             {
                 string insert = "InsertMCQQuestion @Qn_Content ,@Qn_Grade ,@Crs_Id ,@AnswerContent ,@Ch1 ,@Ch2 ,@Ch3 ,@Ch4 ";

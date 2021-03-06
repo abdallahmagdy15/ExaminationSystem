@@ -46,7 +46,7 @@ namespace Examination
         private void cmBoxQnId_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Qn_Id = cmBoxQnId.Text;
-
+            int flage = 0;
             
             try
             {
@@ -57,11 +57,18 @@ namespace Examination
                 dReader = sqlCommand1.ExecuteReader();
                 while (dReader.Read())
                 {
+                    flage = 1;
                     txtQnContent.Text = dReader["Qn_Content"].ToString();
                     txtQnGrade.Text = dReader["Qn_Grade"].ToString();
                     txtAnswer.Text = dReader["Qn_Answer"].ToString();
                     Choice ch = new Choice() { Id = (int)dReader["Ch_Id"] , Content = (string)dReader["Ch_Content"] };
                     ChoiceList.Items.Add(ch);
+                    ChoiceList.Items.Add("\n");
+                }
+                if(flage == 0)
+                {
+                    MessageBox.Show("question not found");
+                    return;
                 }
                 dReader.Close();
                 sqlConnection1.Close();
@@ -77,6 +84,8 @@ namespace Examination
         private void cmBoxCrsId_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmBoxQnId.Items.Clear();
+            txtAnswer.Text = txtQnContent.Text = txtQnGrade.Text = txtChContent.Text = txtChId.Text = string.Empty;
+            ChoiceList.Items.Clear();
             string select = $@"select Qn_Id from Question where Crs_Id = {cmBoxCrsId.SelectedItem.ToString()} and Qn_Type = 'True'";
 
 
@@ -128,9 +137,15 @@ namespace Examination
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if(cmBoxQnId.Text == "" || cmBoxQnId.SelectedItem ==null)
+            {
+                MessageBox.Show("enter Question ID");
+                return;
+            }
             try
             {
                 string Delete = "deleteQuestion @id";
+                sqlCommand1.Parameters.Clear();
                 sqlCommand1.Parameters.AddWithValue("@id", cmBoxQnId.SelectedItem.ToString());
                 sqlCommand1.CommandText = Delete;
 
@@ -164,7 +179,16 @@ namespace Examination
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            if (cmBoxCrsId.SelectedItem == null)
+            {
+                MessageBox.Show("select course");
+                return;
+            }
+            if (txtQnContent.Text == "" || txtQnGrade.Text == "" || cmBoxQnId.SelectedItem == null || cmBoxQnId.Text == "")
+            {
+                MessageBox.Show("fill the fields first");
+                return;
+            }
             sqlConnection1.Close();
 
             string QnId = cmBoxQnId.Text;
@@ -211,30 +235,12 @@ namespace Examination
                 sqlCommand1.CommandText = selectCh;
 
                 sqlConnection1.Open();
-                sqlCommand1.ExecuteNonQuery();
+                int AffectedRows = sqlCommand1.ExecuteNonQuery();
                 sqlConnection1.Close();
-
-                MessageBox.Show(" choise updated");
+                MessageBox.Show(AffectedRows + " choice updated");
+                ChoiceList.Items.Clear();
+            
                 txtChId.Text = txtChContent.Text = string.Empty;
-
-
-                //toDo
-
-                //ChoiceList.Items.Clear();
-
-                //string Qn_Id = cmBoxQnId.Text;
-                //string selectQn = $@"select * from Question q , Choice ch where q.Qn_Id = {Qn_Id} and q.Qn_Type = 'True' and ch.Qn_Id = {Qn_Id} ";
-                //sqlCommand1.CommandText = selectQn;
-                //SqlDataReader dReader;
-                //sqlConnection1.Open();
-                //dReader = sqlCommand1.ExecuteReader();
-                //while (dReader.Read())
-                //{
-                //    Choice ch = new Choice() { Id = (int)dReader["Ch_Id"], Content = (string)dReader["Ch_Content"] };
-                //    ChoiceList.Items.Add(ch);
-                //}
-                //dReader.Close();
-                //sqlConnection1.Close();
 
 
             }
@@ -244,6 +250,35 @@ namespace Examination
                 sqlConnection1.Close();
                 throw (ex);
 
+            }
+
+
+
+
+            string Qn_Id = cmBoxQnId.Text;
+
+
+            try
+            {
+                string selectQn = $@"select * from Question q , Choice ch where q.Qn_Id = {Qn_Id} and q.Qn_Type = 'True' and ch.Qn_Id = {Qn_Id} ";
+                sqlCommand1.CommandText = selectQn;
+                SqlDataReader dReader;
+                sqlConnection1.Open();
+                dReader = sqlCommand1.ExecuteReader();
+                while (dReader.Read())
+                {
+                    Choice ch = new Choice() { Id = (int)dReader["Ch_Id"], Content = (string)dReader["Ch_Content"] };
+                    ChoiceList.Items.Add(ch);
+                    ChoiceList.Items.Add("\n");
+                }
+                dReader.Close();
+                sqlConnection1.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                sqlConnection1.Close();
+                throw (ex);
             }
         }
     }

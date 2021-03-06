@@ -56,6 +56,10 @@ namespace Examination
             this.label1 = new System.Windows.Forms.Label();
             this.sqlCommand1 = new System.Data.SqlClient.SqlCommand();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
+            this.txtQnType = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnAddQn = new System.Windows.Forms.Button();
+            this.btnDeleteQn = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -65,6 +69,10 @@ namespace Examination
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel4.Controls.Add(this.btnDeleteQn);
+            this.panel4.Controls.Add(this.btnAddQn);
+            this.panel4.Controls.Add(this.txtQnType);
+            this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.ExQnList);
             this.panel4.Controls.Add(this.txtQnContent);
             this.panel4.Controls.Add(this.txtQnId);
@@ -72,7 +80,7 @@ namespace Examination
             this.panel4.Controls.Add(this.label9);
             this.panel4.Location = new System.Drawing.Point(721, 76);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(436, 312);
+            this.panel4.Size = new System.Drawing.Size(473, 381);
             this.panel4.TabIndex = 66;
             // 
             // ExQnList
@@ -81,21 +89,22 @@ namespace Examination
             this.ExQnList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExQnList.FormattingEnabled = true;
             this.ExQnList.ItemHeight = 16;
-            this.ExQnList.Location = new System.Drawing.Point(36, 34);
+            this.ExQnList.Location = new System.Drawing.Point(16, 10);
             this.ExQnList.Name = "ExQnList";
-            this.ExQnList.Size = new System.Drawing.Size(161, 180);
+            this.ExQnList.Size = new System.Drawing.Size(240, 292);
             this.ExQnList.TabIndex = 5;
+            this.ExQnList.SelectedIndexChanged += new System.EventHandler(this.ExQnList_SelectedIndexChanged);
             // 
             // txtQnContent
             // 
-            this.txtQnContent.Location = new System.Drawing.Point(273, 170);
+            this.txtQnContent.Location = new System.Drawing.Point(313, 232);
             this.txtQnContent.Name = "txtQnContent";
-            this.txtQnContent.Size = new System.Drawing.Size(143, 20);
+            this.txtQnContent.Size = new System.Drawing.Size(157, 20);
             this.txtQnContent.TabIndex = 4;
             // 
             // txtQnId
             // 
-            this.txtQnId.Location = new System.Drawing.Point(289, 69);
+            this.txtQnId.Location = new System.Drawing.Point(329, 47);
             this.txtQnId.Name = "txtQnId";
             this.txtQnId.Size = new System.Drawing.Size(101, 20);
             this.txtQnId.TabIndex = 3;
@@ -104,7 +113,7 @@ namespace Examination
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(286, 122);
+            this.label10.Location = new System.Drawing.Point(326, 185);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(117, 15);
             this.label10.TabIndex = 2;
@@ -114,7 +123,7 @@ namespace Examination
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(302, 34);
+            this.label9.Location = new System.Drawing.Point(326, 12);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 15);
             this.label9.TabIndex = 1;
@@ -172,13 +181,14 @@ namespace Examination
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnClose.Location = new System.Drawing.Point(582, 453);
+            this.btnClose.Location = new System.Drawing.Point(584, 472);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(130, 41);
             this.btnClose.TabIndex = 62;
             this.btnClose.Text = "Back";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label5
             // 
@@ -306,6 +316,7 @@ namespace Examination
             this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label1
             // 
@@ -329,11 +340,56 @@ namespace Examination
     ";User ID=team;Password=Team2021";
             this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
             // 
+            // txtQnType
+            // 
+            this.txtQnType.Location = new System.Drawing.Point(329, 139);
+            this.txtQnType.Name = "txtQnType";
+            this.txtQnType.Size = new System.Drawing.Size(101, 20);
+            this.txtQnType.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(326, 104);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(98, 15);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Question Type";
+            // 
+            // btnAddQn
+            // 
+            this.btnAddQn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.btnAddQn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnAddQn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAddQn.Location = new System.Drawing.Point(106, 320);
+            this.btnAddQn.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddQn.Name = "btnAddQn";
+            this.btnAddQn.Size = new System.Drawing.Size(130, 41);
+            this.btnAddQn.TabIndex = 63;
+            this.btnAddQn.Text = "Add";
+            this.btnAddQn.UseVisualStyleBackColor = false;
+            this.btnAddQn.Click += new System.EventHandler(this.btnAddQn_Click);
+            // 
+            // btnDeleteQn
+            // 
+            this.btnDeleteQn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.btnDeleteQn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnDeleteQn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnDeleteQn.Location = new System.Drawing.Point(300, 320);
+            this.btnDeleteQn.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteQn.Name = "btnDeleteQn";
+            this.btnDeleteQn.Size = new System.Drawing.Size(130, 41);
+            this.btnDeleteQn.TabIndex = 64;
+            this.btnDeleteQn.Text = "Delete";
+            this.btnDeleteQn.UseVisualStyleBackColor = false;
+            this.btnDeleteQn.Click += new System.EventHandler(this.btnDeleteQn_Click);
+            // 
             // ManageExam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 524);
+            this.ClientSize = new System.Drawing.Size(1204, 524);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -394,5 +450,9 @@ namespace Examination
         private System.Windows.Forms.Label label1;
         private System.Data.SqlClient.SqlCommand sqlCommand1;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
+        private System.Windows.Forms.TextBox txtQnType;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnDeleteQn;
+        private System.Windows.Forms.Button btnAddQn;
     }
 }

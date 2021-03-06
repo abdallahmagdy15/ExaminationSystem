@@ -52,12 +52,12 @@ namespace Examination
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnChEdit = new System.Windows.Forms.Button();
             this.ChoiceList = new System.Windows.Forms.ListBox();
             this.txtChContent = new System.Windows.Forms.TextBox();
             this.txtChId = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnChEdit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -304,15 +304,29 @@ namespace Examination
             this.panel4.Size = new System.Drawing.Size(436, 312);
             this.panel4.TabIndex = 51;
             // 
+            // btnChEdit
+            // 
+            this.btnChEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.btnChEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnChEdit.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnChEdit.Location = new System.Drawing.Point(174, 257);
+            this.btnChEdit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnChEdit.Name = "btnChEdit";
+            this.btnChEdit.Size = new System.Drawing.Size(130, 41);
+            this.btnChEdit.TabIndex = 11;
+            this.btnChEdit.Text = "Edit";
+            this.btnChEdit.UseVisualStyleBackColor = false;
+            this.btnChEdit.Click += new System.EventHandler(this.btnChEdit_Click);
+            // 
             // ChoiceList
             // 
             this.ChoiceList.BackColor = System.Drawing.SystemColors.Control;
             this.ChoiceList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChoiceList.FormattingEnabled = true;
             this.ChoiceList.ItemHeight = 16;
-            this.ChoiceList.Location = new System.Drawing.Point(36, 34);
+            this.ChoiceList.Location = new System.Drawing.Point(3, 18);
             this.ChoiceList.Name = "ChoiceList";
-            this.ChoiceList.Size = new System.Drawing.Size(161, 180);
+            this.ChoiceList.Size = new System.Drawing.Size(212, 212);
             this.ChoiceList.TabIndex = 5;
             this.ChoiceList.SelectedIndexChanged += new System.EventHandler(this.ChoiceList_SelectedIndexChanged_1);
             // 
@@ -349,20 +363,6 @@ namespace Examination
             this.label9.Size = new System.Drawing.Size(69, 15);
             this.label9.TabIndex = 1;
             this.label9.Text = "Choice ID";
-            // 
-            // btnChEdit
-            // 
-            this.btnChEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.btnChEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnChEdit.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnChEdit.Location = new System.Drawing.Point(174, 257);
-            this.btnChEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnChEdit.Name = "btnChEdit";
-            this.btnChEdit.Size = new System.Drawing.Size(130, 41);
-            this.btnChEdit.TabIndex = 11;
-            this.btnChEdit.Text = "Edit";
-            this.btnChEdit.UseVisualStyleBackColor = false;
-            this.btnChEdit.Click += new System.EventHandler(this.btnChEdit_Click);
             // 
             // McqQuestion
             // 
