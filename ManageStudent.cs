@@ -46,7 +46,8 @@ namespace Examination
             this.Visible = false;
             AdminDashboard admin = new AdminDashboard();
             admin.ShowDialog();
-            //this.Close();
+            
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -125,6 +126,12 @@ namespace Examination
             catch(System.NullReferenceException ex)
             {
                 MessageBox.Show("this Id " + id + " Not exist");
+                throw;
+            }
+            finally
+            {
+                sqlConnection1.Close();
+                sqlCommand1.Parameters.Clear();
             }
             
         }
