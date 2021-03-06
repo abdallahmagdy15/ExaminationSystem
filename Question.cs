@@ -19,5 +19,9 @@ namespace Examination
             Choices = new List<Choice>();
         }
 
+        public override string ToString()
+        {
+            return Content;
+        }
     }
 }

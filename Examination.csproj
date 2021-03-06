@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddQuestionToExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddQuestionToExam.Designer.cs">
+      <DependentUpon>AddQuestionToExam.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
       <DependentUpon>TrueOrFalseQuestion.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentGrade.cs" />
+    <EmbeddedResource Include="AddQuestionToExam.resx">
+      <DependentUpon>AddQuestionToExam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
