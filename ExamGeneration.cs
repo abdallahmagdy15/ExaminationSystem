@@ -122,6 +122,12 @@ namespace Examination
 
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            AdminDashboard admin = new AdminDashboard();
+            admin.Show();
+            this.Hide();
 
+        }
     }
 }
