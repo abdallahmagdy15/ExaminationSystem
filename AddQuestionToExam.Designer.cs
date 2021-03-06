@@ -33,10 +33,12 @@ namespace Examination
             this.label8 = new System.Windows.Forms.Label();
             this.txtQnContent = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cmBoxCrId = new System.Windows.Forms.ComboBox();
+            this.cmBoxQnId = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.sqlCommand1 = new System.Data.SqlClient.SqlCommand();
+            this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +54,7 @@ namespace Examination
             this.btnSave.TabIndex = 66;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label8
             // 
@@ -83,14 +86,15 @@ namespace Examination
             this.label6.TabIndex = 63;
             this.label6.Text = "Question ID";
             // 
-            // cmBoxCrId
+            // cmBoxQnId
             // 
-            this.cmBoxCrId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.cmBoxCrId.FormattingEnabled = true;
-            this.cmBoxCrId.Location = new System.Drawing.Point(341, 95);
-            this.cmBoxCrId.Name = "cmBoxCrId";
-            this.cmBoxCrId.Size = new System.Drawing.Size(309, 24);
-            this.cmBoxCrId.TabIndex = 62;
+            this.cmBoxQnId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cmBoxQnId.FormattingEnabled = true;
+            this.cmBoxQnId.Location = new System.Drawing.Point(341, 95);
+            this.cmBoxQnId.Name = "cmBoxQnId";
+            this.cmBoxQnId.Size = new System.Drawing.Size(309, 24);
+            this.cmBoxQnId.TabIndex = 62;
+            this.cmBoxQnId.SelectedIndexChanged += new System.EventHandler(this.cmBoxCrId_SelectedIndexChanged);
             // 
             // btnClose
             // 
@@ -104,6 +108,7 @@ namespace Examination
             this.btnClose.TabIndex = 61;
             this.btnClose.Text = "Back";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // panel1
             // 
@@ -128,6 +133,16 @@ namespace Examination
             this.label1.TabIndex = 4;
             this.label1.Text = "Add  Question";
             // 
+            // sqlCommand1
+            // 
+            this.sqlCommand1.Connection = this.sqlConnection1;
+            // 
+            // sqlConnection1
+            // 
+            this.sqlConnection1.ConnectionString = "Data Source=mssql-21280-0.cloudclusters.net,21280;Initial Catalog=examination2019" +
+    ";User ID=team;Password=Team2021";
+            this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
+            // 
             // AddQuestionToExam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,7 +152,7 @@ namespace Examination
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtQnContent);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.cmBoxCrId);
+            this.Controls.Add(this.cmBoxQnId);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
             this.Name = "AddQuestionToExam";
@@ -155,9 +170,11 @@ namespace Examination
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtQnContent;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmBoxCrId;
+        private System.Windows.Forms.ComboBox cmBoxQnId;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Data.SqlClient.SqlCommand sqlCommand1;
+        private System.Data.SqlClient.SqlConnection sqlConnection1;
     }
 }

@@ -286,8 +286,20 @@ namespace Examination
 
         private void btnAddQn_Click(object sender, EventArgs e)
         {
+            if(cmBoxCrsId.SelectedItem == null || cmBoxCrsId.Text == "" )
+            {
+                MessageBox.Show("select course");
+                return;
+            }
+            if (cmBoxExId.SelectedItem == null || cmBoxExId.Text == "")
+            {
+                MessageBox.Show("select Exam");
+                return;
+            }
+
+
             this.Visible = false;
-            AddQuestionToExam ExQn = new AddQuestionToExam();
+            AddQuestionToExam ExQn = new AddQuestionToExam(cmBoxCrsId.Text , cmBoxExId.Text);
             ExQn.ShowDialog();
         }
     }
