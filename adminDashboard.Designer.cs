@@ -40,6 +40,7 @@ namespace Examination
             this.btnDepartments = new System.Windows.Forms.Button();
             this.btnCourses = new System.Windows.Forms.Button();
             this.btnGExam = new System.Windows.Forms.Button();
+            this.instBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@ namespace Examination
             this.btnStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnStudent.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnStudent.Location = new System.Drawing.Point(9, 72);
+            this.btnStudent.Location = new System.Drawing.Point(18, 72);
             this.btnStudent.Margin = new System.Windows.Forms.Padding(2);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(130, 41);
@@ -70,6 +71,7 @@ namespace Examination
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.panel1.Controls.Add(this.instBtn);
             this.panel1.Controls.Add(this.questionsBtn);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnReports);
@@ -81,7 +83,7 @@ namespace Examination
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 529);
+            this.panel1.Size = new System.Drawing.Size(182, 529);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -90,21 +92,21 @@ namespace Examination
             this.questionsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.questionsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.questionsBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.questionsBtn.Location = new System.Drawing.Point(9, 434);
+            this.questionsBtn.Location = new System.Drawing.Point(18, 441);
             this.questionsBtn.Margin = new System.Windows.Forms.Padding(2);
             this.questionsBtn.Name = "questionsBtn";
-            this.questionsBtn.Size = new System.Drawing.Size(139, 41);
+            this.questionsBtn.Size = new System.Drawing.Size(130, 41);
             this.questionsBtn.TabIndex = 7;
             this.questionsBtn.Text = "Questions";
             this.questionsBtn.UseVisualStyleBackColor = false;
-            this.questionsBtn.Click += new System.EventHandler(this.button1_Click);
+            this.questionsBtn.Click += new System.EventHandler(this.instBtn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(12, 53);
+            this.label1.Location = new System.Drawing.Point(15, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 17);
@@ -117,7 +119,7 @@ namespace Examination
             this.btnReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnReports.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnReports.Location = new System.Drawing.Point(9, 372);
+            this.btnReports.Location = new System.Drawing.Point(18, 377);
             this.btnReports.Margin = new System.Windows.Forms.Padding(2);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(130, 41);
@@ -131,7 +133,7 @@ namespace Examination
             this.btnExam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumTurquoise;
             this.btnExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnExam.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnExam.Location = new System.Drawing.Point(9, 309);
+            this.btnExam.Location = new System.Drawing.Point(18, 311);
             this.btnExam.Margin = new System.Windows.Forms.Padding(2);
             this.btnExam.Name = "btnExam";
             this.btnExam.Size = new System.Drawing.Size(130, 41);
@@ -145,7 +147,7 @@ namespace Examination
             this.btnDepartments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnDepartments.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDepartments.Location = new System.Drawing.Point(9, 126);
+            this.btnDepartments.Location = new System.Drawing.Point(18, 127);
             this.btnDepartments.Margin = new System.Windows.Forms.Padding(2);
             this.btnDepartments.Name = "btnDepartments";
             this.btnDepartments.Size = new System.Drawing.Size(130, 41);
@@ -159,7 +161,7 @@ namespace Examination
             this.btnCourses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnCourses.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCourses.Location = new System.Drawing.Point(9, 242);
+            this.btnCourses.Location = new System.Drawing.Point(18, 245);
             this.btnCourses.Margin = new System.Windows.Forms.Padding(2);
             this.btnCourses.Name = "btnCourses";
             this.btnCourses.Size = new System.Drawing.Size(130, 41);
@@ -181,6 +183,20 @@ namespace Examination
             this.btnGExam.UseVisualStyleBackColor = false;
             this.btnGExam.Click += new System.EventHandler(this.btnGExam_Click);
             // 
+            // instBtn
+            // 
+            this.instBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
+            this.instBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.instBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.instBtn.Location = new System.Drawing.Point(18, 185);
+            this.instBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.instBtn.Name = "instBtn";
+            this.instBtn.Size = new System.Drawing.Size(130, 41);
+            this.instBtn.TabIndex = 8;
+            this.instBtn.Text = "Instructor";
+            this.instBtn.UseVisualStyleBackColor = false;
+            this.instBtn.Click += new System.EventHandler(this.instBtn_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,7 +215,6 @@ namespace Examination
 
         private System.Windows.Forms.Button btnGExam;
         private System.Windows.Forms.Button questionsBtn;
-        private System.Windows.Forms.Button btn;
         #endregion
 
         private System.Data.SqlClient.SqlCommand sqlCommand1;
@@ -211,5 +226,6 @@ namespace Examination
         private System.Windows.Forms.Button btnDepartments;
         private System.Windows.Forms.Button btnCourses;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button instBtn;
     }
 }

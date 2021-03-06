@@ -42,7 +42,7 @@ namespace Examination
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void instBtn_Click(object sender, EventArgs e)
         {
             ManageInstructor mInstructor = new ManageInstructor();
            // this.Visible = false;
@@ -82,5 +82,6 @@ namespace Examination
         {
 
         }
+
     }
 }
