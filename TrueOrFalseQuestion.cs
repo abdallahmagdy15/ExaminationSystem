@@ -189,8 +189,8 @@ namespace Examination
                         flag = 1;
                         txtQnContent.Text = dr["Qn_Content"].ToString();
                         txtQnGrade.Text = dr["Qn_Grade"].ToString();
-                        cmBoxAnswer.Items.Add(dr["Ch_Content"].ToString());
-                        cmBoxCrsId.Items.Add(dr["Crs_Id"].ToString());
+                        cmBoxAnswer.Text = dr["Ch_Content"].ToString();
+                        cmBoxCrsId.Text = dr["Crs_Id"].ToString();
                     }
                     if (flag == 0)
                     {
