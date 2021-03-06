@@ -46,7 +46,7 @@ namespace Examination
             AdminDashboard admin = new AdminDashboard();
             admin.ShowDialog();
             
-            //this.Close();
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
