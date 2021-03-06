@@ -55,10 +55,9 @@ namespace Examination
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.label8.Location = new System.Drawing.Point(327, 234);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(245, 190);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 20);
+            this.label8.Size = new System.Drawing.Size(82, 17);
             this.label8.TabIndex = 50;
             this.label8.Text = "Manger ID";
             // 
@@ -67,9 +66,10 @@ namespace Examination
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(3, 67);
+            this.label1.Location = new System.Drawing.Point(5, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 20);
+            this.label1.Size = new System.Drawing.Size(176, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Department Dashboard";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -79,10 +79,10 @@ namespace Examination
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDelete.Location = new System.Drawing.Point(12, 380);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Location = new System.Drawing.Point(22, 309);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(173, 50);
+            this.btnDelete.Size = new System.Drawing.Size(130, 41);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -93,10 +93,10 @@ namespace Examination
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEdit.Location = new System.Drawing.Point(12, 231);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEdit.Location = new System.Drawing.Point(22, 188);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(173, 50);
+            this.btnEdit.Size = new System.Drawing.Size(130, 41);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -118,10 +118,10 @@ namespace Examination
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSearch.Location = new System.Drawing.Point(12, 304);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Location = new System.Drawing.Point(22, 247);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(173, 50);
+            this.btnSearch.Size = new System.Drawing.Size(130, 41);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -130,20 +130,18 @@ namespace Examination
             // txtSMangerId
             // 
             this.txtSMangerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSMangerId.Location = new System.Drawing.Point(448, 234);
-            this.txtSMangerId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSMangerId.Location = new System.Drawing.Point(336, 190);
             this.txtSMangerId.Name = "txtSMangerId";
-            this.txtSMangerId.Size = new System.Drawing.Size(411, 26);
+            this.txtSMangerId.Size = new System.Drawing.Size(309, 23);
             this.txtSMangerId.TabIndex = 48;
             // 
             // BoxDepId
             // 
             this.BoxDepId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.BoxDepId.FormattingEnabled = true;
-            this.BoxDepId.Location = new System.Drawing.Point(448, 164);
-            this.BoxDepId.Margin = new System.Windows.Forms.Padding(4);
+            this.BoxDepId.Location = new System.Drawing.Point(336, 133);
             this.BoxDepId.Name = "BoxDepId";
-            this.BoxDepId.Size = new System.Drawing.Size(411, 28);
+            this.BoxDepId.Size = new System.Drawing.Size(309, 24);
             this.BoxDepId.TabIndex = 40;
             // 
             // btnClose
@@ -151,10 +149,10 @@ namespace Examination
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnClose.Location = new System.Drawing.Point(532, 437);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Location = new System.Drawing.Point(399, 355);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(173, 50);
+            this.btnClose.Size = new System.Drawing.Size(130, 41);
             this.btnClose.TabIndex = 36;
             this.btnClose.Text = "Back";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -164,19 +162,20 @@ namespace Examination
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.label4.Location = new System.Drawing.Point(327, 356);
+            this.label4.Location = new System.Drawing.Point(245, 289);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 20);
+            this.label4.Size = new System.Drawing.Size(77, 17);
             this.label4.TabIndex = 39;
             this.label4.Text = "Hire Date";
             // 
             // txtHireDate
             // 
             this.txtHireDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtHireDate.Location = new System.Drawing.Point(448, 356);
-            this.txtHireDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHireDate.Location = new System.Drawing.Point(336, 289);
+            this.txtHireDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtHireDate.Name = "txtHireDate";
-            this.txtHireDate.Size = new System.Drawing.Size(411, 26);
+            this.txtHireDate.Size = new System.Drawing.Size(309, 23);
             this.txtHireDate.TabIndex = 38;
             // 
             // txtDetName
@@ -184,20 +183,18 @@ namespace Examination
             this.txtDetName.AutoSize = true;
             this.txtDetName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.txtDetName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.txtDetName.Location = new System.Drawing.Point(327, 295);
-            this.txtDetName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtDetName.Location = new System.Drawing.Point(245, 240);
             this.txtDetName.Name = "txtDetName";
-            this.txtDetName.Size = new System.Drawing.Size(103, 20);
+            this.txtDetName.Size = new System.Drawing.Size(88, 17);
             this.txtDetName.TabIndex = 37;
             this.txtDetName.Text = "Dept Name";
             // 
             // txtFName
             // 
             this.txtFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtFName.Location = new System.Drawing.Point(448, 292);
-            this.txtFName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFName.Location = new System.Drawing.Point(336, 237);
             this.txtFName.Name = "txtFName";
-            this.txtFName.Size = new System.Drawing.Size(411, 26);
+            this.txtFName.Size = new System.Drawing.Size(309, 23);
             this.txtFName.TabIndex = 42;
             // 
             // panel1
@@ -210,9 +207,9 @@ namespace Examination
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(208, 568);
+            this.panel1.Size = new System.Drawing.Size(183, 462);
             this.panel1.TabIndex = 35;
             // 
             // btnAdd
@@ -220,10 +217,10 @@ namespace Examination
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAdd.Location = new System.Drawing.Point(12, 159);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Location = new System.Drawing.Point(22, 129);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(173, 50);
+            this.btnAdd.Size = new System.Drawing.Size(130, 41);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -234,18 +231,17 @@ namespace Examination
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(79)))));
-            this.label6.Location = new System.Drawing.Point(333, 167);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(250, 136);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 20);
+            this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 41;
             this.label6.Text = "Dept ID";
             // 
             // MangeDepartment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1132, 568);
+            this.ClientSize = new System.Drawing.Size(849, 462);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtSMangerId);
             this.Controls.Add(this.BoxDepId);
@@ -256,6 +252,7 @@ namespace Examination
             this.Controls.Add(this.txtFName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MangeDepartment";
             this.Text = "MangeDepartment";
             this.panel1.ResumeLayout(false);

@@ -118,30 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="sqlCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>389, 21</value>
+    <value>17, 17</value>
   </metadata>
-  <data name="sqlCommand1.CommandText" xml:space="preserve">
-    <value>SELECT    
-FROM      Crs_Top INNER JOIN
-              Course ON Crs_Top.Crs_Id = Course.Crs_Id INNER JOIN
-              Exam ON Course.Crs_Id = Exam.Crs_Id INNER JOIN
-              Ex_Qn INNER JOIN
-              Choice ON Ex_Qn.Qn_Id = Choice.Qn_Id ON Exam.Ex_Id = Ex_Qn.Ex_Id INNER JOIN
-              Ins_Crs ON Course.Crs_Id = Ins_Crs.Crs_Id INNER JOIN
-              Instructor ON Ins_Crs.Ins_Id = Instructor.Inst_Id INNER JOIN
-              Department ON Instructor.Inst_Id = Department.Dept_Mgr AND Instructor.Dept_Id = Department.Dept_Id INNER JOIN
-              Authentication ON Instructor.Inst_Id = Authentication.User_Id INNER JOIN
-              Question ON Course.Crs_Id = Question.Crs_Id AND Ex_Qn.Qn_Id = Question.Qn_Id AND Choice.Qn_Id = Question.Qn_Id AND Choice.Ch_Id = Question.Qn_Answer INNER JOIN
-              St_Answers ON Exam.Ex_Id = St_Answers.Ex_Id INNER JOIN
-              St_Crs ON Course.Crs_Id = St_Crs.Crs_Id INNER JOIN
-              StExCrs ON Course.Crs_Id = StExCrs.Crs_Id AND Exam.Ex_Id = StExCrs.Ex_Id INNER JOIN
-              Student ON Department.Dept_Id = Student.Dept_Id AND Authentication.User_Id = Student.St_Id AND St_Answers.St_Id = Student.St_Id AND St_Crs.St_Id = Student.St_Id AND StExCrs.St_Id = Student.St_Id INNER JOIN
-              Topic ON Crs_Top.Top_Id = Topic.Top_Id</value>
-  </data>
   <metadata name="sqlConnection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>544, 21</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>56</value>
+    <value>147, 17</value>
   </metadata>
 </root>

@@ -19,10 +19,13 @@ namespace Examination
         {
             InitializeComponent();
             SetupExamInfo();
-            SetupExamQuestions();
+            SetupExamsHistory();
         }
         void SetupExamInfo()
         {
+            //
+            // TODO: check if student already take this exam!!!!!!!!!!!!!!!!!!!
+            //
             //get current exam on this date 
             LoginForm.sqlCommand1.CommandText = "GetCurrentRandExam @St_Id";
             LoginForm.sqlCommand1.Parameters.AddWithValue("@St_Id", LoginForm.CurrentStudent.StId);
@@ -45,7 +48,14 @@ namespace Examination
                     crsLabel.Text = crsLabel.Text + dr.GetString(3);
                     dateLabel.Text = dateLabel.Text +
                         DateTime.UtcNow.ToString("MM-dd-yyyy");
+                    dr.Close();
+                    LoginForm.sqlConnection1.Close();
+                    //
+                    //
+                    SetupExamQuestions();
                 }
+
+
             }
             catch (Exception err)
             {
@@ -63,6 +73,7 @@ namespace Examination
 
         void SetupExamQuestions()
         {
+
             //get exam questions
             LoginForm.sqlCommand1.CommandText = "[Get_ExamQuestions_by_ExamID] @Ex_Id";
             LoginForm.sqlCommand1.Parameters.AddWithValue("@Ex_Id", exam.Ex_Id);
@@ -85,7 +96,6 @@ namespace Examination
 
                 dr.Close();
                 //filling questions with choices
-                //1,2,4,6,20 ,24
                 //MAIN TASK : PASSING ARRAY OF QUESTIONS IDs TO QUERY TO GET ALL CHOICES AT ONCE
 
                 DataTable dt = new DataTable();
@@ -242,11 +252,12 @@ namespace Examination
             if (!valid)
                 return;
             //
-            //saving answers to db
+            //saving answers to db and CORRECTING EXAM
             StringBuilder insertingAnswersCommand = new StringBuilder();
             exam.Questions.ForEach(q =>
             {
-                insertingAnswersCommand.Append($" exec InsertStudentAnswer {LoginForm.CurrentStudent.StId} , {q.Answer.Id} , {q.Id} , {exam.Ex_Id}");
+                insertingAnswersCommand
+                .Append($" exec InsertStudentAnswer {LoginForm.CurrentStudent.StId} , {q.Answer.Id} , {q.Id} , {exam.Ex_Id} exec ExamCorrection {exam.Ex_Id} , {LoginForm.CurrentStudent.StId}");
             });
             LoginForm.sqlCommand1.CommandText = insertingAnswersCommand.ToString();
             try
@@ -255,6 +266,7 @@ namespace Examination
                 LoginForm.sqlCommand1.ExecuteNonQuery();
 
                 MessageBox.Show("Your Answers Submitted Successfully!");
+                this.TakeExam.Controls.Remove(this.mainPanel);
             }
             catch (Exception err)
             {
@@ -266,6 +278,114 @@ namespace Examination
             {
                 LoginForm.sqlConnection1.Close();
             }
+        }
+
+
+        void SetupExamsHistory()
+        {
+            //get all corrected exams with grades
+            LoginForm.sqlCommand1.CommandText = "GetStudentCorrectedExams @StId";
+            LoginForm.sqlCommand1.Parameters.AddWithValue("@StId", LoginForm.CurrentStudent.StId);
+            SqlDataReader dr;
+            try
+            {
+                LoginForm.sqlConnection1.Open();
+                dr = LoginForm.sqlCommand1.ExecuteReader();
+                List<StudentGrade> StGradesList = new List<StudentGrade>();
+
+                while (dr.Read())
+                {
+                    Console.WriteLine(dr.GetDateTime(2));
+                    StGradesList.Add(new StudentGrade(dr.GetString(0), dr.GetInt32(1),
+                        dr.GetDateTime(2), dr.GetString(3), dr.GetInt32(4),dr.GetInt32(5)));
+                }
+                ShowStudentGrades(StGradesList);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                throw;
+            }
+
+        }
+
+        void ShowStudentGrades(List<StudentGrade> StGradesList)
+        {
+            int pY = 11;
+            StGradesList.ForEach(g =>
+            {
+                // 
+                // Generating components
+                // 
+                Panel panel = new Panel();
+                Label descLabel = new Label();
+                Label durationLabel = new Label();
+                Label dateLabel = new Label();
+                Label crsLabel = new Label();
+                Label gradeLabel = new Label();
+                this.historyPanel.Controls.Add(panel);
+
+                panel.Anchor = System.Windows.Forms.AnchorStyles.None;
+                panel.BackColor = System.Drawing.Color.WhiteSmoke;
+                panel.Controls.Add(descLabel);
+                panel.Controls.Add(durationLabel);
+                panel.Controls.Add(dateLabel);
+                panel.Controls.Add(crsLabel);
+                panel.Controls.Add(gradeLabel);
+                panel.Location = new System.Drawing.Point(11, pY);
+                panel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+                //panel.Name = "panel2";
+                panel.Size = new System.Drawing.Size(1016, 100);
+                panel.TabIndex = 1;
+                //
+                // 
+                dateLabel.AutoSize = true;
+                dateLabel.Font = new System.Drawing.Font("Tahoma", 12F);
+                dateLabel.Location = new System.Drawing.Point(410, pY+38);
+                dateLabel.Name = "dateLabel" + g.ExId;
+                dateLabel.Size = new System.Drawing.Size(57, 19);
+                dateLabel.TabIndex = 6;
+                dateLabel.Text = "Date : "+g.ExDate.ToString();
+                // 
+                // 
+                crsLabel.AutoSize = true;
+                crsLabel.Font = new System.Drawing.Font("Tahoma", 12F);
+                crsLabel.Location = new System.Drawing.Point(410, pY+19);
+                crsLabel.Name = "crsLabel" + g.ExId;
+                crsLabel.Size = new System.Drawing.Size(74, 19);
+                crsLabel.TabIndex = 4;
+                crsLabel.Text = "Course : "+g.CrsName;
+                // 
+                // 
+                durationLabel.AutoSize = true;
+                durationLabel.Font = new System.Drawing.Font("Tahoma", 12F);
+                durationLabel.Location = new System.Drawing.Point(30, pY + 38);
+                durationLabel.Name = "durationLabel" + g.ExId;
+                durationLabel.Size = new System.Drawing.Size(130, 19);
+                durationLabel.TabIndex = 3;
+                durationLabel.Text = "Exam Duration : "+g.ExDuration;
+                // 
+                // 
+                descLabel.AutoSize = true;
+                descLabel.Font = new System.Drawing.Font("Tahoma", 12F);
+                descLabel.Location = new System.Drawing.Point(30, pY + 19);
+                descLabel.Name = "descLabel" + g.ExId;
+                descLabel.Size = new System.Drawing.Size(148, 19);
+                descLabel.TabIndex = 2;
+                descLabel.Text = "Exam Description : "+g.ExDesc;
+                // 
+                // 
+                gradeLabel.AutoSize = true;
+                gradeLabel.Font = new System.Drawing.Font("Tahoma", 12F);
+                gradeLabel.Location = new System.Drawing.Point(716, pY + 19);
+                gradeLabel.Name = "gradeLabel" + g.ExId;
+                gradeLabel.Size = new System.Drawing.Size(67, 19);
+                gradeLabel.TabIndex = 7;
+                gradeLabel.Text = "Grade : "+g.Grade;
+                //
+                pY += 100;
+
+            });
         }
         private void StudentDashboard_Load(object sender, EventArgs e)
         {

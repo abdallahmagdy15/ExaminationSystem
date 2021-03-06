@@ -31,20 +31,22 @@ namespace Examination
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TakeExam = new System.Windows.Forms.TabPage();
-            this.noExamsLabel = new System.Windows.Forms.Label();
-            this.History = new System.Windows.Forms.TabPage();
-            this.dateLabel = new System.Windows.Forms.Label();
-            this.crsLabel = new System.Windows.Forms.Label();
-            this.durationLabel = new System.Windows.Forms.Label();
-            this.exDescLabel = new System.Windows.Forms.Label();
-            this.deptLabel = new System.Windows.Forms.Label();
-            this.stNameLabel = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.stNameLabel = new System.Windows.Forms.Label();
+            this.crsLabel = new System.Windows.Forms.Label();
+            this.deptLabel = new System.Windows.Forms.Label();
+            this.durationLabel = new System.Windows.Forms.Label();
+            this.exDescLabel = new System.Windows.Forms.Label();
+            this.noExamsLabel = new System.Windows.Forms.Label();
+            this.History = new System.Windows.Forms.TabPage();
+            this.historyPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.TakeExam.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.History.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -56,39 +58,50 @@ namespace Examination
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1049, 730);
+            this.tabControl1.Size = new System.Drawing.Size(1049, 725);
             this.tabControl1.TabIndex = 0;
             // 
             // TakeExam
             // 
+            this.TakeExam.Controls.Add(this.mainPanel);
             this.TakeExam.Controls.Add(this.noExamsLabel);
             this.TakeExam.Location = new System.Drawing.Point(4, 25);
             this.TakeExam.Name = "TakeExam";
             this.TakeExam.Padding = new System.Windows.Forms.Padding(3);
-            this.TakeExam.Size = new System.Drawing.Size(1041, 701);
+            this.TakeExam.Size = new System.Drawing.Size(1041, 696);
             this.TakeExam.TabIndex = 0;
             this.TakeExam.Text = "Take Exam";
             this.TakeExam.UseVisualStyleBackColor = true;
             // 
-            // noExamsLabel
+            // mainPanel
             // 
-            this.noExamsLabel.AutoSize = true;
-            this.noExamsLabel.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.noExamsLabel.Location = new System.Drawing.Point(372, 225);
-            this.noExamsLabel.Name = "noExamsLabel";
-            this.noExamsLabel.Size = new System.Drawing.Size(158, 46);
-            this.noExamsLabel.TabIndex = 0;
-            this.noExamsLabel.Text = "No Exams Found!\r\nTry Again Later";
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.mainPanel.AutoScroll = true;
+            this.mainPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.mainPanel.Controls.Add(this.panel1);
+            this.mainPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.mainPanel.Location = new System.Drawing.Point(6, 6);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Padding = new System.Windows.Forms.Padding(8);
+            this.mainPanel.Size = new System.Drawing.Size(1045, 699);
+            this.mainPanel.TabIndex = 1;
+            this.mainPanel.Visible = false;
+            this.mainPanel.WrapContents = false;
             // 
-            // History
+            // panel1
             // 
-            this.History.Location = new System.Drawing.Point(4, 25);
-            this.History.Name = "History";
-            this.History.Padding = new System.Windows.Forms.Padding(3);
-            this.History.Size = new System.Drawing.Size(1041, 701);
-            this.History.TabIndex = 1;
-            this.History.Text = "History";
-            this.History.UseVisualStyleBackColor = true;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.dateLabel);
+            this.panel1.Controls.Add(this.stNameLabel);
+            this.panel1.Controls.Add(this.crsLabel);
+            this.panel1.Controls.Add(this.deptLabel);
+            this.panel1.Controls.Add(this.durationLabel);
+            this.panel1.Controls.Add(this.exDescLabel);
+            this.panel1.Location = new System.Drawing.Point(11, 11);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1016, 100);
+            this.panel1.TabIndex = 1;
             // 
             // dateLabel
             // 
@@ -100,6 +113,16 @@ namespace Examination
             this.dateLabel.TabIndex = 6;
             this.dateLabel.Text = "Date : ";
             // 
+            // stNameLabel
+            // 
+            this.stNameLabel.AutoSize = true;
+            this.stNameLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.stNameLabel.Location = new System.Drawing.Point(21, 30);
+            this.stNameLabel.Name = "stNameLabel";
+            this.stNameLabel.Size = new System.Drawing.Size(109, 17);
+            this.stNameLabel.TabIndex = 0;
+            this.stNameLabel.Text = "Student Name : ";
+            // 
             // crsLabel
             // 
             this.crsLabel.AutoSize = true;
@@ -109,6 +132,16 @@ namespace Examination
             this.crsLabel.Size = new System.Drawing.Size(64, 17);
             this.crsLabel.TabIndex = 4;
             this.crsLabel.Text = "Course : ";
+            // 
+            // deptLabel
+            // 
+            this.deptLabel.AutoSize = true;
+            this.deptLabel.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.deptLabel.Location = new System.Drawing.Point(21, 47);
+            this.deptLabel.Name = "deptLabel";
+            this.deptLabel.Size = new System.Drawing.Size(95, 17);
+            this.deptLabel.TabIndex = 1;
+            this.deptLabel.Text = "Department : ";
             // 
             // durationLabel
             // 
@@ -130,55 +163,39 @@ namespace Examination
             this.exDescLabel.TabIndex = 2;
             this.exDescLabel.Text = "Exam Description : ";
             // 
-            // deptLabel
+            // noExamsLabel
             // 
-            this.deptLabel.AutoSize = true;
-            this.deptLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.deptLabel.Location = new System.Drawing.Point(21, 47);
-            this.deptLabel.Name = "deptLabel";
-            this.deptLabel.Size = new System.Drawing.Size(95, 17);
-            this.deptLabel.TabIndex = 1;
-            this.deptLabel.Text = "Department : ";
+            this.noExamsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.noExamsLabel.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.noExamsLabel.Location = new System.Drawing.Point(429, 314);
+            this.noExamsLabel.Name = "noExamsLabel";
+            this.noExamsLabel.Size = new System.Drawing.Size(158, 46);
+            this.noExamsLabel.TabIndex = 0;
+            this.noExamsLabel.Text = "No Exams Found!\r\nTry Again Later";
             // 
-            // stNameLabel
+            // History
             // 
-            this.stNameLabel.AutoSize = true;
-            this.stNameLabel.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.stNameLabel.Location = new System.Drawing.Point(21, 30);
-            this.stNameLabel.Name = "stNameLabel";
-            this.stNameLabel.Size = new System.Drawing.Size(109, 17);
-            this.stNameLabel.TabIndex = 0;
-            this.stNameLabel.Text = "Student Name : ";
+            this.History.Controls.Add(this.historyPanel);
+            this.History.Location = new System.Drawing.Point(4, 25);
+            this.History.Name = "History";
+            this.History.Padding = new System.Windows.Forms.Padding(3);
+            this.History.Size = new System.Drawing.Size(1041, 696);
+            this.History.TabIndex = 1;
+            this.History.Text = "History";
+            this.History.UseVisualStyleBackColor = true;
             // 
-            // mainPanel
+            // historyPanel
             // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.mainPanel.AutoScroll = true;
-            this.mainPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.mainPanel.Controls.Add(this.panel1);
-            this.mainPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.mainPanel.Location = new System.Drawing.Point(12, 34);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Padding = new System.Windows.Forms.Padding(8);
-            this.mainPanel.Size = new System.Drawing.Size(1045, 704);
-            this.mainPanel.TabIndex = 1;
-            this.mainPanel.Visible = false;
-            this.mainPanel.WrapContents = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.dateLabel);
-            this.panel1.Controls.Add(this.stNameLabel);
-            this.panel1.Controls.Add(this.crsLabel);
-            this.panel1.Controls.Add(this.deptLabel);
-            this.panel1.Controls.Add(this.durationLabel);
-            this.panel1.Controls.Add(this.exDescLabel);
-            this.panel1.Location = new System.Drawing.Point(11, 11);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1016, 100);
-            this.panel1.TabIndex = 1;
+            this.historyPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.historyPanel.AutoScroll = true;
+            this.historyPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.historyPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.historyPanel.Location = new System.Drawing.Point(3, 3);
+            this.historyPanel.Name = "historyPanel";
+            this.historyPanel.Padding = new System.Windows.Forms.Padding(8);
+            this.historyPanel.Size = new System.Drawing.Size(1035, 690);
+            this.historyPanel.TabIndex = 2;
+            this.historyPanel.WrapContents = false;
             // 
             // StudentDashboard
             // 
@@ -187,7 +204,6 @@ namespace Examination
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1073, 754);
-            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.tabControl1);
             this.Name = "StudentDashboard";
             this.Text = "StudentDashboard";
@@ -195,10 +211,10 @@ namespace Examination
             this.Load += new System.EventHandler(this.StudentDashboard_Load);
             this.tabControl1.ResumeLayout(false);
             this.TakeExam.ResumeLayout(false);
-            this.TakeExam.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.History.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -217,5 +233,6 @@ namespace Examination
         private System.Windows.Forms.Label stNameLabel;
         private System.Windows.Forms.FlowLayoutPanel mainPanel;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.FlowLayoutPanel historyPanel;
     }
 }
