@@ -111,6 +111,10 @@ namespace Examination
         private void ChoiceList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Choice Choice = ChoiceList.SelectedItem as Choice;
+            if (Choice == null)
+            {
+                return;
+            }
             string QnId = cmBoxQnId.Text;
             try
             {

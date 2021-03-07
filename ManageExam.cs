@@ -46,7 +46,7 @@ namespace Examination
         private void cmBoxExId_SelectedIndexChanged(object sender, EventArgs e)
         {
             string ExID = cmBoxExId.SelectedItem.ToString();
-
+            
             try
             {
                 string exam = $@"select * from Exam where Ex_Id = {ExID}";
@@ -70,6 +70,7 @@ namespace Examination
                 throw (ex);
             }
 
+            //load Exam Question in listbox
             try
             {
                 string selectEx = $@"Get_ExamQuestions_by_ExamID @Eid ";
@@ -126,6 +127,11 @@ namespace Examination
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if(cmBoxExId.SelectedItem == null || cmBoxExId.Text == "")
+            {
+                MessageBox.Show("select Exam");
+                return;
+            }
             try
             {
                 string Delete = "deleteExam @id";
@@ -194,7 +200,13 @@ namespace Examination
 
         private void ExQnList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+
             Question Qn = ExQnList.SelectedItem as Question;
+            if(Qn == null)
+            {
+                return;
+            }
             string ExId = cmBoxExId.Text;
             bool QnType; 
             try
@@ -235,7 +247,24 @@ namespace Examination
 
         private void btnDeleteQn_Click(object sender, EventArgs e)
         {
+            if (cmBoxExId.SelectedItem == null || cmBoxExId.Text == "")
+            {
+                MessageBox.Show("select Exam");
+                return;
+            }
+            if(ExQnList.SelectedItem == null)
+            {
+                MessageBox.Show("select Question");
+                return;
+            }
+            if (txtQnId.Text == "")
+            {
+                return;
+            }
+
+
             string ExId = cmBoxExId.Text;
+            
             try
             {
                 string Delete = "deleteExamQuestion @Eid , @Qnid ";
