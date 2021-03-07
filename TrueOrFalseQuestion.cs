@@ -45,35 +45,11 @@ namespace Examination
             cmBoxAnswer.Items.Add("False");
         }
 
-        private void cmBoxCrsId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-            cmBoxQnId.Items.Clear();
-            string selectQn = $@"select Qn_Id from Question where Crs_Id =  {cmBoxCrsId.SelectedItem.ToString()} and Question.Qn_Type = 'False'";
 
-            try
-            {
-                sqlCommand1.CommandText = selectQn;
-                SqlDataReader dReader;
-                sqlConnection1.Open();
-                dReader = sqlCommand1.ExecuteReader();
-                while (dReader.Read())
-                {
-                    cmBoxQnId.Items.Add(dReader["Ex_Id"]);
-                }
-                dReader.Close();
-                sqlConnection1.Close();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("The connection is not stable ");
-                throw (ex);
-            }
-        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (cmBoxQnId.SelectedItem == null)
+            if (cmBoxQnId.SelectedItem == null || cmBoxQnId.Text == "")
             {
                 MessageBox.Show("need Question Id");
                 return;
@@ -90,8 +66,32 @@ namespace Examination
                 sqlConnection1.Close();
                 MessageBox.Show(" Question Deleted");
                 txtQnContent.Text = txtQnGrade.Text = string.Empty;
+                cmBoxQnId.Items.Clear();
+                cmBoxAnswer.Text = "";
+                cmBoxQnId.Text = "";
             }
             catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw (ex);
+            }
+
+            //reload Question ID
+            string selectQn = $@"select Qn_Id from Question q where q.Qn_Type = 'False' and q.Crs_Id = {cmBoxCrsId.SelectedItem.ToString()}";
+            try
+            {
+                sqlCommand1.CommandText = selectQn;
+                SqlDataReader dReader;
+                sqlConnection1.Open();
+                dReader = sqlCommand1.ExecuteReader();
+                while (dReader.Read())
+                {
+                    cmBoxQnId.Items.Add(dReader[0]);
+                }
+                dReader.Close();
+                sqlConnection1.Close();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 throw (ex);
@@ -132,36 +132,40 @@ namespace Examination
                 MessageBox.Show(" Question Added");
                 txtQnContent.Text = txtQnGrade.Text =  string.Empty;
                 cmBoxQnId.Items.Clear();
-                cmBoxAnswer.Items.Clear();
-                cmBoxAnswer.Items.Add("True");
-                cmBoxAnswer.Items.Add("False");
-
-                //reload Question Id
-                string selectQn = $@"select Qn_Id from Question q where q.Qn_Type = 'False' and q.Crs_Id = {cmBoxCrsId.SelectedItem.ToString()}";
-                try
-                {
-                    sqlCommand1.CommandText = selectQn;
-                    SqlDataReader dReader;
-                    sqlConnection1.Open();
-                    dReader = sqlCommand1.ExecuteReader();
-                    while (dReader.Read())
-                    {
-                        cmBoxQnId.Items.Add(dReader[0]);
-                    }
-                    dReader.Close();
-                    sqlConnection1.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    throw (ex);
-                }
+                cmBoxAnswer.Text = "";                
             }
             catch
             {
                 MessageBox.Show("Error");
                 return;
             }
+
+
+            string selectQn = $@"select Qn_Id from Question where Crs_Id =  {cmBoxCrsId.SelectedItem.ToString()} and Question.Qn_Type = 'False'";
+
+
+            try
+            {
+                sqlCommand1.CommandText = selectQn;
+                SqlDataReader dReader;
+                sqlConnection1.Open();
+                dReader = sqlCommand1.ExecuteReader();
+                while (dReader.Read())
+                {
+                    cmBoxQnId.Items.Add(dReader["Qn_Id"]);
+                }
+                dReader.Close();
+                sqlConnection1.Close();
+            }
+            catch
+            {
+                MessageBox.Show("The connection is not stable ");
+            }
+
+
+
+
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -172,8 +176,6 @@ namespace Examination
 
                 sqlConnection1.Close();
                 string QnId = cmBoxQnId.Text;
-                cmBoxAnswer.Items.Clear();
-                cmBoxCrsId.Items.Clear();
                 int flag = 0;
                 try
                 {
@@ -224,64 +226,50 @@ namespace Examination
         {
             //validate Null
 
-            if (cmBoxCrsId.SelectedItem == null)
+            if (cmBoxCrsId.Text == "" || cmBoxCrsId.SelectedItem == null)
             {
-                MessageBox.Show("select course");
+                MessageBox.Show("Select Course");
                 return;
             }
-            if (cmBoxQnId.SelectedItem != null || cmBoxQnId.Text != "")
+            if (cmBoxQnId.Text == "" )
             {
-                if (txtQnContent.Text == "" || txtQnGrade.Text == "" || cmBoxAnswer.SelectedItem == null)
-                {
-                    MessageBox.Show("need Content and grade and Answer");
-                    return;
-                }
-                else
-                {
-                    sqlConnection1.Close();
-                    string QnId = cmBoxQnId.Text;
-                    cmBoxAnswer.Items.Clear();
-                    cmBoxCrsId.Items.Clear();
-                    int flag = 0;
-                    try
-                    {
-                        string Edit = $"updateTrueOrFalseQuestion @Qnid ,@Qcont ,@Qgrade ,@Cid ,@Qans";
-                        sqlCommand1.Parameters.AddWithValue("@Qnid", QnId);
-                        sqlCommand1.Parameters.AddWithValue("@Qcont", txtQnContent.Text);
-                        sqlCommand1.Parameters.AddWithValue("@Qgrade", txtQnGrade.Text);
-                        sqlCommand1.Parameters.AddWithValue("@Cid", cmBoxCrsId.Text);
-                        sqlCommand1.Parameters.AddWithValue("@Qans", cmBoxAnswer.Text);
-                        sqlCommand1.CommandText = Edit;
-
-                        sqlConnection1.Open();
-                        sqlCommand1.ExecuteNonQuery();
-                        sqlConnection1.Close();
-                        MessageBox.Show(" Question updated");
-                        txtQnContent.Text = txtQnGrade.Text = string.Empty;
-                        cmBoxAnswer.Text = string.Empty;
-                        cmBoxCrsId.Text = string.Empty;
-                        cmBoxQnId.Text = string.Empty;
-
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        sqlConnection1.Close();
-                        throw (ex);
-                    }
-                }
-
-
-                
+                MessageBox.Show("Select Question");
+                return;
             }
-            else
+            if (txtQnContent.Text == "" || txtQnGrade.Text == "" || cmBoxAnswer.Text == "" || cmBoxAnswer.SelectedItem == null)
             {
-                MessageBox.Show("select Question");
+                MessageBox.Show("invalid data");
                 return;
             }
 
-            
+            sqlConnection1.Close();
+            string QnId = cmBoxQnId.Text;
+            int flag = 0;
+            try
+            {
+                string Edit = $"updateTrueOrFalseQuestion @Qnid ,@Qcont ,@Qgrade ,@Cid ,@Qans";
+                sqlCommand1.Parameters.AddWithValue("@Qnid", QnId);
+                sqlCommand1.Parameters.AddWithValue("@Qcont", txtQnContent.Text);
+                sqlCommand1.Parameters.AddWithValue("@Qgrade", txtQnGrade.Text);
+                sqlCommand1.Parameters.AddWithValue("@Cid", cmBoxCrsId.Text);
+                sqlCommand1.Parameters.AddWithValue("@Qans", cmBoxAnswer.Text);
+                sqlCommand1.CommandText = Edit;
+
+                sqlConnection1.Open();
+                sqlCommand1.ExecuteNonQuery();
+                sqlConnection1.Close();
+                MessageBox.Show(" Question updated");
+                txtQnContent.Text = txtQnGrade.Text = string.Empty;
+                cmBoxAnswer.Text = "";
+                cmBoxQnId.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                sqlConnection1.Close();
+                throw (ex);
+            }
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -289,6 +277,72 @@ namespace Examination
             this.Visible = false;
             ManageQuestion Qn = new ManageQuestion();
             Qn.ShowDialog();
+        }
+
+        private void cmBoxCrsId_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string selectQn = $@"select Qn_Id from Question where Crs_Id =  {cmBoxCrsId.SelectedItem.ToString()} and Question.Qn_Type = 'False'";
+
+
+            try
+            {
+                sqlCommand1.CommandText = selectQn;
+                SqlDataReader dReader;
+                sqlConnection1.Open();
+                dReader = sqlCommand1.ExecuteReader();
+                while (dReader.Read())
+                {
+                    cmBoxQnId.Items.Add(dReader["Qn_Id"]);
+                }
+                dReader.Close();
+                sqlConnection1.Close();
+            }
+            catch
+            {
+                MessageBox.Show("The connection is not stable ");
+            }
+        }
+
+        private void cmBoxQnId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sqlConnection1.Close();
+            string QnId = cmBoxQnId.Text;
+            int flag = 0;
+            try
+            {
+                string select = $"searchTrueOrFalseQuestion @Qid";
+                sqlCommand1.Parameters.Clear();
+                sqlCommand1.Parameters.AddWithValue("@Qid", QnId);
+
+                sqlCommand1.CommandText = select;
+                sqlConnection1.Open();
+                SqlDataReader dr = sqlCommand1.ExecuteReader();
+                while (dr.Read())
+                {
+                    flag = 1;
+                    txtQnContent.Text = dr["Qn_Content"].ToString();
+                    txtQnGrade.Text = dr["Qn_Grade"].ToString();
+                    cmBoxAnswer.Text = dr["Ch_Content"].ToString();
+                    cmBoxCrsId.Text = dr["Crs_Id"].ToString();
+                }
+                if (flag == 0)
+                {
+                    MessageBox.Show("this Id " + QnId + " Not exist");
+                    return;
+                }
+
+                dr.Close();
+                sqlConnection1.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+                throw (ex);
+
+            }
         }
     }
 }

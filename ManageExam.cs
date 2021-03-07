@@ -142,7 +142,8 @@ namespace Examination
                 sqlCommand1.ExecuteNonQuery();
                 sqlConnection1.Close();
                 MessageBox.Show(" Exam Deleted");
-               // txtQnContent.Text = txtQnGrade.Text = txtChId.Text = txtChContent.Text = txtAnswer.Text = string.Empty;
+               txtExDate.Text = txtExDesc.Text = txtExDuration.Text =  string.Empty;
+                cmBoxExId.Text = "";
                 cmBoxExId.Items.Clear();
             }
             catch (Exception ex)
@@ -150,6 +151,29 @@ namespace Examination
                 MessageBox.Show(ex.Message);
                 throw (ex);
             }
+
+            //reload Exam id in cmBoxExId
+            string select = $@"select Ex_Id from Exam where Crs_Id =  {cmBoxCrsId.SelectedItem.ToString()} ";
+
+
+            try
+            {
+                sqlCommand1.CommandText = select;
+                SqlDataReader dReader;
+                sqlConnection1.Open();
+                dReader = sqlCommand1.ExecuteReader();
+                while (dReader.Read())
+                {
+                    cmBoxExId.Items.Add(dReader["Ex_Id"]);
+                }
+                dReader.Close();
+                sqlConnection1.Close();
+            }
+            catch
+            {
+                MessageBox.Show("The connection is not stable ");
+            }
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -161,9 +185,20 @@ namespace Examination
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if(cmBoxExId.Text == "" || cmBoxExId.SelectedItem == null)
+            
+            if (cmBoxCrsId.Text == "" || cmBoxCrsId.SelectedItem == null)
+            {
+                MessageBox.Show("Select Course");
+                return;
+            }
+            if (cmBoxExId.Text == "" || cmBoxExId.SelectedItem == null)
             {
                 MessageBox.Show("Select Exam");
+                return;
+            }
+            if(txtExDate.Text == "" || txtExDesc.Text == "" || txtExDuration.Text == "")
+            {
+                MessageBox.Show("invalid data");
                 return;
             }
             
@@ -186,8 +221,9 @@ namespace Examination
                 sqlConnection1.Close();
 
                 MessageBox.Show(" Exam updated");
-                cmBoxExId.Items.Clear();
-                txtExDuration.Text = txtExDesc.Text = txtExDate.Text = string.Empty;
+                cmBoxExId.Text = "";
+                ExQnList.Items.Clear();
+                txtExDuration.Text = txtExDesc.Text = txtExDate.Text = txtQnId.Text = txtQnContent.Text = txtQnType.Text = string.Empty;
 
             }
             catch (Exception ex)
@@ -196,6 +232,10 @@ namespace Examination
                 sqlConnection1.Close();
                 throw (ex);
             }
+
+
+
+
         }
 
         private void ExQnList_SelectedIndexChanged(object sender, EventArgs e)

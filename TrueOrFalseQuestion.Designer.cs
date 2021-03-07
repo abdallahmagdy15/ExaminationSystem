@@ -165,6 +165,7 @@ namespace Examination
             this.cmBoxQnId.Name = "cmBoxQnId";
             this.cmBoxQnId.Size = new System.Drawing.Size(169, 21);
             this.cmBoxQnId.TabIndex = 16;
+            this.cmBoxQnId.SelectedIndexChanged += new System.EventHandler(this.cmBoxQnId_SelectedIndexChanged);
             // 
             // cmBoxCrsId
             // 
@@ -173,6 +174,7 @@ namespace Examination
             this.cmBoxCrsId.Name = "cmBoxCrsId";
             this.cmBoxCrsId.Size = new System.Drawing.Size(169, 21);
             this.cmBoxCrsId.TabIndex = 15;
+            this.cmBoxCrsId.SelectedIndexChanged += new System.EventHandler(this.cmBoxCrsId_SelectedIndexChanged_1);
             // 
             // label2
             // 
