@@ -45,6 +45,7 @@ namespace Examination
 
         private void cmBoxExId_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ExQnList.Items.Clear();
             string ExID = cmBoxExId.SelectedItem.ToString();
             
             try

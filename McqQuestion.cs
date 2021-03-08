@@ -45,6 +45,7 @@ namespace Examination
 
         private void cmBoxQnId_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChoiceList.Items.Clear();
             string Qn_Id = cmBoxQnId.Text;
             int flage = 0;
             
@@ -199,6 +200,7 @@ namespace Examination
             try
             {
                 string Edit = $"updateQuestion @Qid ,@Qcont ,@Qgrade , @Cid ,@Qans ";
+                sqlCommand1.Parameters.Clear();
                 sqlCommand1.Parameters.AddWithValue("@Qid", QnId);
                 sqlCommand1.Parameters.AddWithValue("@Qcont", txtQnContent.Text);
                 sqlCommand1.Parameters.AddWithValue("@Qgrade", txtQnGrade.Text);
@@ -228,11 +230,21 @@ namespace Examination
 
         private void btnChEdit_Click(object sender, EventArgs e)
         {
-
+            if (txtChId.Text == "")
+            {
+                MessageBox.Show("select choice");
+                return;
+            }
+            if (txtChContent.Text == "")
+            {
+                MessageBox.Show("invalid data ");
+                return;
+            }
             string QnId = cmBoxQnId.Text;
             try
             {
                 string selectCh = $@"updateChoiceByID @id ,@Content ,@Qn_id ";
+                sqlCommand1.Parameters.Clear();
                 sqlCommand1.Parameters.AddWithValue("@Qn_id", QnId);
                 sqlCommand1.Parameters.AddWithValue("@id", txtChId.Text);
                 sqlCommand1.Parameters.AddWithValue("@Content", txtChContent.Text);
