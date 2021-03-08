@@ -44,13 +44,13 @@ namespace Examination
             this.historyPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.AccountBtn = new System.Windows.Forms.Button();
             this.accountCard = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.StName = new System.Windows.Forms.Label();
-            this.StDept = new System.Windows.Forms.Label();
             this.StBD = new System.Windows.Forms.Label();
+            this.StDept = new System.Windows.Forms.Label();
+            this.StName = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.TakeExam.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -237,38 +237,36 @@ namespace Examination
             this.accountCard.TabIndex = 2;
             this.accountCard.Visible = false;
             // 
-            // label1
+            // StBD
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(17, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Student Name : ";
+            this.StBD.AutoSize = true;
+            this.StBD.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StBD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.StBD.Location = new System.Drawing.Point(148, 106);
+            this.StBD.Name = "StBD";
+            this.StBD.Size = new System.Drawing.Size(0, 19);
+            this.StBD.TabIndex = 7;
+            this.StBD.Visible = false;
             // 
-            // label2
+            // StDept
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(17, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Department : ";
+            this.StDept.AutoSize = true;
+            this.StDept.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StDept.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.StDept.Location = new System.Drawing.Point(148, 69);
+            this.StDept.Name = "StDept";
+            this.StDept.Size = new System.Drawing.Size(0, 19);
+            this.StDept.TabIndex = 6;
             // 
-            // label3
+            // StName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(20, 106);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Birth Date : ";
+            this.StName.AutoSize = true;
+            this.StName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.StName.Location = new System.Drawing.Point(148, 36);
+            this.StName.Name = "StName";
+            this.StName.Size = new System.Drawing.Size(0, 19);
+            this.StName.TabIndex = 5;
             // 
             // button1
             // 
@@ -283,36 +281,38 @@ namespace Examination
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // StName
+            // label3
             // 
-            this.StName.AutoSize = true;
-            this.StName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.StName.Location = new System.Drawing.Point(148, 36);
-            this.StName.Name = "StName";
-            this.StName.Size = new System.Drawing.Size(0, 19);
-            this.StName.TabIndex = 5;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(20, 106);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 19);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Birth Date : ";
             // 
-            // StDept
+            // label2
             // 
-            this.StDept.AutoSize = true;
-            this.StDept.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StDept.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.StDept.Location = new System.Drawing.Point(148, 69);
-            this.StDept.Name = "StDept";
-            this.StDept.Size = new System.Drawing.Size(0, 19);
-            this.StDept.TabIndex = 6;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(17, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 19);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Department : ";
             // 
-            // StBD
+            // label1
             // 
-            this.StBD.AutoSize = true;
-            this.StBD.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StBD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.StBD.Location = new System.Drawing.Point(148, 106);
-            this.StBD.Name = "StBD";
-            this.StBD.Size = new System.Drawing.Size(0, 19);
-            this.StBD.TabIndex = 7;
-            this.StBD.Visible = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(17, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Student Name : ";
             // 
             // StudentDashboard
             // 

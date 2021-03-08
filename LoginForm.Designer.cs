@@ -44,7 +44,7 @@ namespace Examination
             // 
             // loginBtn
             // 
-            this.loginBtn.BackColor = System.Drawing.Color.MidnightBlue;
+            this.loginBtn.BackColor = System.Drawing.Color.MidnightBlue; 
             this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginBtn.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;

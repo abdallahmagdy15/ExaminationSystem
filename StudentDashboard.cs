@@ -219,12 +219,16 @@ namespace Examination
             SubmitBtn.Font = new System.Drawing.Font("Tahoma", 12F);
             SubmitBtn.Location = new System.Drawing.Point(875, qnY);
             SubmitBtn.Name = "SubmitBtn";
+            SubmitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             SubmitBtn.Size = new System.Drawing.Size(151, 36);
-            SubmitBtn.Margin = new System.Windows.Forms.Padding(10);
+            SubmitBtn.Margin = new System.Windows.Forms.Padding(10,10,10,50);
             SubmitBtn.TabIndex = 1;
+            SubmitBtn.Dock = DockStyle.Bottom;
+            SubmitBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            SubmitBtn.BackColor = System.Drawing.Color.MidnightBlue;
             SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             SubmitBtn.Text = "Submit";
-            SubmitBtn.UseVisualStyleBackColor = true;
+            SubmitBtn.UseVisualStyleBackColor = false;
             this.mainPanel.Controls.Add(SubmitBtn);
         }
 
@@ -260,8 +264,9 @@ namespace Examination
             exam.Questions.ForEach(q =>
             {
                 insertingAnswersCommand
-                .Append($" exec InsertStudentAnswer {LoginForm.CurrentStudent.StId} , {q.Answer.Id} , {q.Id} , {exam.Ex_Id} exec ExamCorrection {exam.Ex_Id} , {LoginForm.CurrentStudent.StId}");
+                .Append($" exec InsertStudentAnswer {LoginForm.CurrentStudent.StId} , {q.Answer.Id} , {q.Id} , {exam.Ex_Id}");
             });
+            insertingAnswersCommand.Append($"  exec ExamCorrection {exam.Ex_Id} , {LoginForm.CurrentStudent.StId}");
             LoginForm.sqlCommand1.CommandText = insertingAnswersCommand.ToString();
             try
             {
@@ -269,7 +274,6 @@ namespace Examination
                 LoginForm.sqlCommand1.ExecuteNonQuery();
 
                 MessageBox.Show("Your Answers Submitted Successfully!");
-                this.TakeExam.Controls.Remove(this.mainPanel);
             }
             catch (Exception err)
             {
@@ -280,6 +284,8 @@ namespace Examination
             finally
             {
                 LoginForm.sqlConnection1.Close();
+                this.TakeExam.Controls.Remove(this.mainPanel);
+                SetupExamsHistory();
             }
         }
 
@@ -295,10 +301,8 @@ namespace Examination
                 LoginForm.sqlConnection1.Open();
                 dr = LoginForm.sqlCommand1.ExecuteReader();
                 List<StudentGrade> StGradesList = new List<StudentGrade>();
-
                 while (dr.Read())
                 {
-                    Console.WriteLine(dr.GetDateTime(2));
                     StGradesList.Add(new StudentGrade(dr.GetString(0), dr.GetInt32(1),
                         dr.GetDateTime(2), dr.GetString(3), dr.GetInt32(4), dr.GetInt32(5)));
                 }
@@ -386,7 +390,6 @@ namespace Examination
                 gradeLabel.TabIndex = 7;
                 gradeLabel.Text = "Grade : " + g.Grade;
                 //
-                pY += 100;
 
             });
         }
